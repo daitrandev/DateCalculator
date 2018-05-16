@@ -168,9 +168,9 @@ class AddSubtractDateDurationCell: UITableViewCell {
     }
     
     func disableUserInteraction(isFreeVersion: Bool) {
-        dayPicker.isUserInteractionEnabled = false
-        monthPicker.isUserInteractionEnabled = false
-        yearPicker.isUserInteractionEnabled = false
+        dayPicker.isUserInteractionEnabled = !isFreeVersion
+        monthPicker.isUserInteractionEnabled = !isFreeVersion
+        yearPicker.isUserInteractionEnabled = !isFreeVersion
     }
     
     required init?(coder aDecoder: NSCoder) {
