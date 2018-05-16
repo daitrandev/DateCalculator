@@ -92,7 +92,7 @@ extension HomeViewController: HomeViewDelegate {
     }
     
     func presentShareAction() {
-        let appId = isFreeVersion ? "id1381419764" : "id1283197781"
+        let appId = isFreeVersion ? "id1381419764" : "id1381419314"
         let message: String = "https://itunes.apple.com/app/\(appId)"
         let vc = UIActivityViewController(activityItems: [message], applicationActivities: [])
         vc.popoverPresentationController?.sourceView = self.view
@@ -100,7 +100,7 @@ extension HomeViewController: HomeViewDelegate {
     }
     
     func presentRatingAction() {
-        let appId = isFreeVersion ? "id1381419764" : "id1283197781"
+        let appId = isFreeVersion ? "id1381419764" : "id1381419314"
         rateApp(appId: appId) { success in
             print("RateApp \(success)")
         }

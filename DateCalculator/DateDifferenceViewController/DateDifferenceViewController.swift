@@ -279,7 +279,7 @@ extension DateDifferenceViewController : GADBannerViewDelegate {
 
 extension DateDifferenceViewController : GADInterstitialDelegate {
     fileprivate func createAndLoadInterstitial() -> GADInterstitial? {
-        interstitial = GADInterstitial(adUnitID: "ca-app-pub-7005013141953077/5926785468")
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-7005013141953077/8664100148")
         
         guard let interstitial = interstitial else {
             return nil
@@ -299,7 +299,7 @@ extension DateDifferenceViewController : GADInterstitialDelegate {
         guard let bannerView = bannerView else {
             return nil
         }
-        bannerView.adUnitID = "ca-app-pub-7005013141953077/4204266995"
+        bannerView.adUnitID = "ca-app-pub-7005013141953077/8716071035"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self
