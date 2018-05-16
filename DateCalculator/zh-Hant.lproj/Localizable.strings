@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  DateCalculator
+
+  Created by Dai Tran on 5/8/18.
+  Copyright © 2018 Dai Tran. All rights reserved.
+*/
+
+"TheDifference" = "的差異";
+"AddOrSubtract" = "添加或減去";
+"Weekday" = "工作日";
+"LeapYear" = "閏年";
+"TheDifferenceBetweenTwoDates" = "兩個日期之間的差異";
+"AddOrSubtractADuration" = "添加或減去工期";
+"WeekdaysBetweenTwoDates" = "工作日介於兩個日期之間";
+"CheckLeapYear" = "檢查閏年";
+"INPUT" = "輸入";
+"SelectTheDate" = "選擇日期";
+"OUTPUT" = "輸出";
+"Day" = "日";
+"Month" = "月";
+"Year" = "年";
+"Date" = "日期";
+"Monday" = "星期一";
+"Tuesday" = "星期二";
+"Wednesday" = "星期三";
+"Thursday" = "星期四";
+"Friday" = "星期五";
+"Saturday" = "星期六";
+"Sunday" = "星期日";
+"IsALeapYear" = "不是閏年。";
+"IsNotALeapYear" = "不是閏年。";
+"Home" = "網頁";
+"Theme" = "主題";
+"Feedback" = "回饋";
+"Rate" = "評價";
+"Share" = "共用";
+"Appname" = "日期計算機++";
+"UpgradeMessage" = "升級到日期計算機++, 那麼你可以使用沒有廣告。";
+"Upgrade" = "更新";
+"Done" = "做完";

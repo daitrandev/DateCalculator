@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  DateCalculator
+
+  Created by Dai Tran on 5/8/18.
+  Copyright © 2018 Dai Tran. All rights reserved.
+*/
+
+"TheDifference" = "Tính số ngày";
+"AddOrSubtract" = "Cộng hoặc trừ";
+"Weekday" = "Ngày trong tuần";
+"LeapYear" = "Năm nhuận";
+"TheDifferenceBetweenTwoDates" = "Tính số ngày giữa hai ngày";
+"AddOrSubtractADuration" = "Cộng hoặc trừ một khoảng thời gian";
+"WeekdaysBetweenTwoDates" = "Ngày trong tuần giữa hai ngày";
+"CheckLeapYear" = "Kiểm tra năm nhuận";
+"INPUT" = "ĐẦU VÀO";
+"SelectTheDate" = "Chọn ngày";
+"OUTPUT" = "ĐẦU RA";
+"Day" = "Ngày";
+"Month" = "Tháng";
+"Year" = "Năm";
+"Date" = "Ngày";
+"Monday" = "Thứ hai";
+"Tuesday" = "Thứ ba";
+"Wednesday" = "Thứ tư";
+"Thursday" = "Thứ năm";
+"Friday" = "Thứ sáu";
+"Saturday" = "Thứ bảy";
+"Sunday" = "Chủ nhật";
+"IsALeapYear" = " là năm nhuận.";
+"IsNotALeapYear" = " không phải là năm nhuận.";
+"Home" = "Trang chính";
+"Theme" = "Chủ đề";
+"Feedback" = "Phản hồi";
+"Rate" = "Đánh giá";
+"Share" = "Chia sẻ";
+"Appname" = "Bộ tính ngày++";
+"UpgradeMessage" = "Nâng cấp lên Bộ Tính Ngày++ sau đó bạn có thể sử dụng mà không có quảng cáo.";
+"Upgrade" = "Nâng cấp";
+"Done" = "Xong";

@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  DateCalculator
+
+  Created by Dai Tran on 5/8/18.
+  Copyright © 2018 Dai Tran. All rights reserved.
+*/
+
+"CFBundleDisplayName" = "Date Calculator";
+"NSHumanReadableCopyright" = "Copyright © 2018 Dai Tran. All rights reserved.";

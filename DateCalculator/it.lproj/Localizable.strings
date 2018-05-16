@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  DateCalculator
+
+  Created by Dai Tran on 5/8/18.
+  Copyright © 2018 Dai Tran. All rights reserved.
+*/
+
+"TheDifference" = "La differenza";
+"AddOrSubtract" = "Aggiungere o sottrarre";
+"Weekday" = "Giorno feriale";
+"LeapYear" = "Bisestile";
+"TheDifferenceBetweenTwoDates" = "La differenza tra due date";
+"AddOrSubtractADuration" = "Aggiungere o sottrarre una durata";
+"WeekdaysBetweenTwoDates" = "Giorni feriali tra due date";
+"CheckLeapYear" = "Controllare l'anno bisestile";
+"INPUT" = "INPUT";
+"SelectTheDate" = "Selezionare la data";
+"OUTPUT" = "OUTPUT";
+"Day" = "Giorno";
+"Month" = "Mese";
+"Year" = "Anno";
+"Date" = "Data";
+"Monday" = "Lunedì";
+"Tuesday" = "Martedì";
+"Wednesday" = "Mercoledì";
+"Thursday" = "Giovedì";
+"Friday" = "Venerdì";
+"Saturday" = "Sabato";
+"Sunday" = "Domenica";
+"IsALeapYear" = " è un anno bisestile.";
+"IsNotALeapYear" = " non è un anno bisestile.";
+"Home" = "Home page";
+"Theme" = "Tema";
+"Feedback" = "Feedback";
+"Rate" = "Valutare";
+"Share" = "Condividere";
+"Appname" = "Calcolatore di data++";
+"UpgradeMessage" = "Aggiorna a Calcolatore di data++ e puoi utilizzare senza annunci.";
+"Upgrade" = "Aggiornamento";
+"Done" = "Fine";

@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  DateCalculator
+
+  Created by Dai Tran on 5/8/18.
+  Copyright © 2018 Dai Tran. All rights reserved.
+*/
+
+"TheDifference" = "Разница";
+"AddOrSubtract" = "Добавить или вычесть";
+"Weekday" = "Будний день";
+"LeapYear" = "Високосный год";
+"TheDifferenceBetweenTwoDates" = "Разница между двумя датами";
+"AddOrSubtractADuration" = "Добавление или вычитание длительности";
+"WeekdaysBetweenTwoDates" = "Будние дни между двумя датами";
+"CheckLeapYear" = "Проверить високосный год";
+"INPUT" = "Вход";
+"SelectTheDate" = "Выберите дату";
+"OUTPUT" = "Выход";
+"Day" = "День";
+"Month" = "Месяц";
+"Year" = "Год";
+"Date" = "Дата";
+"Monday" = "Понедельник";
+"Tuesday" = "Вторник";
+"Wednesday" = "Среда";
+"Thursday" = "Суббота";
+"Friday" = "Пятница";
+"Saturday" = "Суббота";
+"Sunday" = "Воскресенье";
+"IsALeapYear" = "-високосный год.";
+"IsNotALeapYear" = " не високосный год.";
+"Home" = "Главная страница";
+"Theme" = "тема";
+"Feedback" = "Обратная связь";
+"Rate" = "Oценивать";
+"Share" = "Поделиться";
+"Appname" = "Калькулятор даты++";
+"UpgradeMessage" = "Обновите до Калькулятор даты++, затем вы можете использовать без рекламы.";
+"Upgrade" = "модернизировать";
+"Done" = "Ладно";

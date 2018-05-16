@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "DateDifferenceViewController.tableView(_:cellForRowAt:):DateDifferenceViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "resultData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WeekdayViewController.updateDataModel(containingCell:updated:):WeekdayViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "weekdayObjs">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WeekdayViewController.calculateAndUpdateView():WeekdayViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "weekDifference">
+            </PersistentString>
+            <PersistentString
+               value = "weekdayObjs">
+            </PersistentString>
+            <PersistentString
+               value = "inputDates">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WeekdayViewController.calculateAndUpdateView(clickedSwitch:):WeekdayViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddSubtractDateViewController.updateTableView():AddSubtractDateViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "resultData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WeekdayViewController.updateTableView():WeekdayViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "weekdayObjs">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WeekdayTableViewCell.switchControlValueChanged(_:):WeekdayTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tag">
+            </PersistentString>
+            <PersistentString
+               value = "sender.isOn">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DateDifferenceViewController.calculateDateDifference():DateDifferenceViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dateComponents.day">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WeekdayViewController.calculateWeekdays(weekday:):WeekdayViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "inputDates">
+            </PersistentString>
+            <PersistentString
+               value = "weekDifference">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddSubtractDateViewController.calculateResult():AddSubtractDateViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dayMonthYear">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

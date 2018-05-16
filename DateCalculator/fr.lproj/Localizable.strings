@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  DateCalculator
+
+  Created by Dai Tran on 5/8/18.
+  Copyright © 2018 Dai Tran. All rights reserved.
+*/
+
+"TheDifference" = "La différence";
+"AddOrSubtract" = "Ajouter ou soustraire";
+"Weekday" = "Jour de semaine";
+"LeapYear" = "Année bissextile";
+"TheDifferenceBetweenTwoDates" = "Différence entre les dates";
+"AddOrSubtractADuration" = "Ajouter ou soustraire une durée";
+"WeekdaysBetweenTwoDates" = "Jours ouvrables entre deux dates";
+"CheckLeapYear" = "Vérifier l'année bissextile";
+"INPUT" = "Entrée";
+"SelectTheDate" = "Sélectionnez la date";
+"OUTPUT" = "Résultat";
+"Day" = "Jour";
+"Month" = "Mois";
+"Year" = "Année";
+"Date" = "Date";
+"Monday" = "Lundi";
+"Tuesday" = "Mardi";
+"Wednesday" = "Mercredi";
+"Thursday" = "Jeudi";
+"Friday" = "Vendredi";
+"Saturday" = "Samedi";
+"Sunday" = "Dimanche";
+"IsALeapYear" = " est une année bissextile.";
+"IsNotALeapYear" = " n'est pas une année bissextile.";
+"Home" = "Page d'accueil";
+"Theme" = "Thème";
+"Feedback" = "Retour d'information";
+"Rate" = "Évaluer";
+"Share" = "Partager";
+"Appname" = "Calculateur de date++";
+"UpgradeMessage" = "Mise à niveau vers Calculateur de date++ alors vous pouvez utiliser sans annonces.";
+"Upgrade" = "Surclassement";
+"Done" = "D'accord";

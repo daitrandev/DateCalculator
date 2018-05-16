@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  DateCalculator
+
+  Created by Dai Tran on 5/8/18.
+  Copyright © 2018 Dai Tran. All rights reserved.
+*/
+
+"TheDifference" = "違いを";
+"AddOrSubtract" = "追加または減算";
+"Weekday" = "平日";
+"LeapYear" = "うるう年";
+"TheDifferenceBetweenTwoDates" = "2つの日付の違い";
+"AddOrSubtractADuration" = "期間を追加または減算する";
+"WeekdaysBetweenTwoDates" = "2つの日付の間の平日";
+"CheckLeapYear" = "うるう年の確認";
+"INPUT" = "入力";
+"SelectTheDate" = "日付を選択";
+"OUTPUT" = "出力";
+"Day" = "日";
+"Month" = "月";
+"Year" = "年";
+"Date" = "日付";
+"Monday" = "月曜日";
+"Tuesday" = "火曜日";
+"Wednesday" = "水曜日";
+"Thursday" = "木曜日";
+"Friday" = "金曜日";
+"Saturday" = "土曜日";
+"Sunday" = "日曜日";
+"IsALeapYear" = "は飛躍的な年です。";
+"IsNotALeapYear" = "は飛躍的な年ではありません。";
+"Home" = "ホームページ";
+"Theme" = "テーマ";
+"Feedback" = "フィードバック";
+"Rate" = "評価する";
+"Share" = "分け合う";
+"Appname" = "日付電卓++";
+"UpgradeMessage" = "日付電卓++にアップグレードすると、広告なしで使用できます。";
+"Upgrade" = "アドバンス";
+"Done" = "完了";
