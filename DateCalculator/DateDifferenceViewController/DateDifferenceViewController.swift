@@ -23,6 +23,8 @@ class DateDifferenceViewController: UIViewController, DateDifferenceInputCellDel
     
     var interstitial: GADInterstitial?
     
+    var pressedHomeCount = 1
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.allowsSelection = false
@@ -50,7 +52,7 @@ class DateDifferenceViewController: UIViewController, DateDifferenceInputCellDel
     func setupAds() {
         if (isFreeVersion) {
             bannerView = createAndLoadBannerView()
-            interstitial = createAndLoadInterstitial()
+            interstitial = createInterstitial()
         }
     }
     
@@ -189,6 +191,13 @@ extension DateDifferenceViewController: UITextFieldDelegate {
 
 //MARK: Conform HomeViewControllerDelegate
 extension DateDifferenceViewController: HomeViewControllerDelegate {
+    
+    func loadInterstitial() {
+        if pressedHomeCount % 3 == 0 {
+            interstitial?.load(GADRequest())
+        }
+    }
+    
     func loadThemeAndUpdateFormat(isLightTheme: Bool) {
         self.isLightTheme = isLightTheme
         self.tableView.backgroundColor = isLightTheme ? UIColor.white : UIColor.black
@@ -206,11 +215,6 @@ extension DateDifferenceViewController: HomeViewControllerDelegate {
         
         tableView.reloadData()
     }
-    
-    func showUpgradeAlert() {
-        self.presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
-    }
-    
 }
 
 // MARK: Button event
@@ -227,6 +231,7 @@ extension DateDifferenceViewController {
         let nav = UINavigationController(rootViewController: homeViewController)
         homeViewController.delegate = self
         present(nav, animated: true)
+        pressedHomeCount += 1
     }
     
     func presentAlert(title: String, message: String, isUpgradeMessage: Bool) {
@@ -278,17 +283,13 @@ extension DateDifferenceViewController : GADBannerViewDelegate {
 }
 
 extension DateDifferenceViewController : GADInterstitialDelegate {
-    fileprivate func createAndLoadInterstitial() -> GADInterstitial? {
+    fileprivate func createInterstitial() -> GADInterstitial? {
         interstitial = GADInterstitial(adUnitID: "ca-app-pub-7005013141953077/8664100148")
         
         guard let interstitial = interstitial else {
             return nil
         }
         
-        let request = GADRequest()
-        // Remove the following line before you upload the app
-        request.testDevices = [ kGADSimulatorID ]
-        interstitial.load(request)
         interstitial.delegate = self
         
         return interstitial
@@ -308,11 +309,12 @@ extension DateDifferenceViewController : GADInterstitialDelegate {
     }
     
     func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
-        presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
+        //presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
+        
     }
     
     func interstitialDidFail(toPresentScreen ad: GADInterstitial) {
-        presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
+        //presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
     }
     
     func interstitialDidReceiveAd(_ ad: GADInterstitial) {
@@ -321,6 +323,7 @@ extension DateDifferenceViewController : GADInterstitialDelegate {
     
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
         presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
+        interstitial = createInterstitial()
     }
 }
 

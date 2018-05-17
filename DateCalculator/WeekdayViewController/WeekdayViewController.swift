@@ -34,9 +34,11 @@ class WeekdayViewController: DateDifferenceViewController {
     }
     
     override func setupAds() {
-        if (isFreeVersion) {
-            bannerView = createAndLoadBannerView()
-        }
+        // Does nothing
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
     }
     
     override func updateTableView() {

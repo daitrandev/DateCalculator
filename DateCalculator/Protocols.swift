@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 protocol HomeViewDelegate: class {
     func loadTheme(isLightTheme: Bool)
@@ -17,7 +18,7 @@ protocol HomeViewDelegate: class {
 
 protocol HomeViewControllerDelegate: class {
     func loadThemeAndUpdateFormat(isLightTheme: Bool)
-    func showUpgradeAlert()
+    func loadInterstitial()
 }
 
 protocol DateDifferenceInputCellDelegate: class {

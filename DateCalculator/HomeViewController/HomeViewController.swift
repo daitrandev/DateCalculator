@@ -13,15 +13,12 @@ import GoogleMobileAds
 class HomeViewController: UIViewController {
     
     weak var delegate: HomeViewControllerDelegate?
-        
-    var bannerView: GADBannerView?
     
     var isLightTheme = UserDefaults.standard.bool(forKey: isLightThemeKey)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupAds()
         setupViews()
     }
     
@@ -36,17 +33,11 @@ class HomeViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "close"), style: .done, target: self, action: #selector(closedButtonAction))
     }
     
-    func setupAds() {
-        if isFreeVersion {
-            bannerView = createAndLoadBannerView()
-        }
-    }
-    
     @objc func closedButtonAction() {
         delegate?.loadThemeAndUpdateFormat(isLightTheme: isLightTheme)
         dismiss(animated: true) {
             if isFreeVersion {
-                self.delegate?.showUpgradeAlert()
+                self.delegate?.loadInterstitial()
             }
         }
     }
@@ -132,51 +123,5 @@ extension HomeViewController:  MFMailComposeViewControllerDelegate {
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension HomeViewController : GADBannerViewDelegate {
-
-    private func createAndLoadBannerView() -> GADBannerView? {
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        guard let bannerView = bannerView else {
-            return nil
-        }
-        bannerView.adUnitID = "ca-app-pub-7005013141953077/8716071035"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-        bannerView.delegate = self
-
-        return bannerView
-    }
-
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        view.addConstraints(
-            [NSLayoutConstraint(item: bannerView,
-                                attribute: .bottom,
-                                relatedBy: .equal,
-                                toItem: bottomLayoutGuide,
-                                attribute: .top,
-                                multiplier: 1,
-                                constant: 0),
-             NSLayoutConstraint(item: bannerView,
-                                attribute: .centerX,
-                                relatedBy: .equal,
-                                toItem: view,
-                                attribute: .centerX,
-                                multiplier: 1,
-                                constant: 0)
-            ])
-    }
-
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        addBannerViewToView(bannerView)
-
-        bannerView.alpha = 0
-        UIView.animate(withDuration: 1, animations: {
-            bannerView.alpha = 1
-        })
     }
 }

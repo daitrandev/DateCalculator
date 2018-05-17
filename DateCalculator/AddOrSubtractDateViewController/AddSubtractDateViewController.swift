@@ -24,12 +24,15 @@ class AddSubtractDateViewController: DateDifferenceViewController {
         let currentDate = Date()
         let dateString = currentDate.getDateString()
         resultData = [("Date", dateString)]
+        
     }
     
     override func setupAds() {
-        if (isFreeVersion) {
-            bannerView = createAndLoadBannerView()
-        }
+        // Does nothing
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
     }
     
     override func resetDate() {
