@@ -47,6 +47,11 @@ class DateDifferenceViewController: UIViewController, DateDifferenceInputCellDel
     override func viewWillAppear(_ animated: Bool) {
         isLightTheme = UserDefaults.standard.bool(forKey: isLightThemeKey)
         loadThemeAndUpdateFormat(isLightTheme: isLightTheme)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshWhenAppBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func setupAds() {
@@ -66,6 +71,10 @@ class DateDifferenceViewController: UIViewController, DateDifferenceInputCellDel
         
         view.addSubview(tableView)
         tableView.constraintTo(top: view.layoutMarginsGuide.topAnchor, bottom: view.layoutMarginsGuide.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, topConstant: 0, bottomConstant: 0, leftConstant: 0, rightConstant: 0)
+    }
+    
+    @objc func refreshWhenAppBecomeActive() {
+        interstitial?.load(GADRequest())
     }
     
     
@@ -232,6 +241,7 @@ extension DateDifferenceViewController {
         homeViewController.delegate = self
         present(nav, animated: true)
         pressedHomeCount += 1
+        NotificationCenter.default.removeObserver(self)
     }
     
     func presentAlert(title: String, message: String, isUpgradeMessage: Bool) {
