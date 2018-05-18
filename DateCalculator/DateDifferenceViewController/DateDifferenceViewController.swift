@@ -261,24 +261,49 @@ extension DateDifferenceViewController {
     }
 }
 
-extension DateDifferenceViewController : GADBannerViewDelegate {
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("Banner loaded successfully")
-        
-        // Reposition the banner ad to create a slide down effect
-        let translateTransform = CGAffineTransform(translationX: 0, y: -bannerView.bounds.size.height)
-        bannerView.transform = translateTransform
-        
-        UIView.animate(withDuration: 0.5) {
-            self.tableView.tableHeaderView?.frame = bannerView.frame
-            bannerView.transform = CGAffineTransform.identity
-            self.tableView.tableHeaderView = bannerView
+extension DateDifferenceViewController: GADBannerViewDelegate {
+    
+    func createAndLoadBannerView() -> GADBannerView? {
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        guard let bannerView = bannerView else {
+            return nil
         }
+        bannerView.adUnitID = "ca-app-pub-7005013141953077/8716071035"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
+        
+        return bannerView
     }
     
-    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-        print("Fail to receive ads")
-        print(error)
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
+    }
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        addBannerViewToView(bannerView)
+        
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 1, animations: {
+            bannerView.alpha = 1
+        })
     }
 }
 
@@ -293,19 +318,6 @@ extension DateDifferenceViewController : GADInterstitialDelegate {
         interstitial.delegate = self
         
         return interstitial
-    }
-    
-    func createAndLoadBannerView() -> GADBannerView? {
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        guard let bannerView = bannerView else {
-            return nil
-        }
-        bannerView.adUnitID = "ca-app-pub-7005013141953077/8716071035"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-        bannerView.delegate = self
-        
-        return bannerView
     }
     
     func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
