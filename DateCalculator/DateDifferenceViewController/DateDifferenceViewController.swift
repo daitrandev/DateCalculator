@@ -23,7 +23,7 @@ class DateDifferenceViewController: UIViewController, DateDifferenceInputCellDel
     
     var interstitial: GADInterstitial?
     
-    var pressedHomeCount = 1
+    var pressedHomeCount = 0
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -74,7 +74,11 @@ class DateDifferenceViewController: UIViewController, DateDifferenceInputCellDel
     }
     
     @objc func refreshWhenAppBecomeActive() {
-        interstitial?.load(GADRequest())
+        pressedHomeCount += 1
+        if (pressedHomeCount % 2 == 0) {
+            interstitial?.load(GADRequest())
+        }
+        pressedHomeCount = 1
     }
     
     
@@ -205,6 +209,7 @@ extension DateDifferenceViewController: HomeViewControllerDelegate {
         if pressedHomeCount % 3 == 0 {
             interstitial?.load(GADRequest())
         }
+        pressedHomeCount = 1
     }
     
     func loadThemeAndUpdateFormat(isLightTheme: Bool) {
@@ -240,7 +245,7 @@ extension DateDifferenceViewController {
         let nav = UINavigationController(rootViewController: homeViewController)
         homeViewController.delegate = self
         present(nav, animated: true)
-        pressedHomeCount += 1
+        pressedHomeCount += 2
         NotificationCenter.default.removeObserver(self)
     }
     
