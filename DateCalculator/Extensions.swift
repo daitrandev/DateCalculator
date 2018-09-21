@@ -29,6 +29,12 @@ extension UIView {
     }
 }
 
+extension UINavigationController {
+    open override var childForStatusBarStyle: UIViewController? {
+        return visibleViewController
+    }
+}
+
 extension UIColor {
     static let purpleLilac = UIColor(red: 91/255, green: 41/255, blue: 173/255, alpha: 1)
 }

@@ -78,7 +78,7 @@ class AddSubtractDateDurationCell: UITableViewCell {
     
     var isLightTheme: Bool = UserDefaults.standard.bool(forKey: isLightThemeKey)
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupLayout()
@@ -200,7 +200,7 @@ extension AddSubtractDateDurationCell: UIPickerViewDataSource, UIPickerViewDeleg
             textColor = isLightTheme ? UIColor.black : UIColor.white
         }
 
-        let attributedString = NSAttributedString(string: "\(row)", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedStringKey.foregroundColor: textColor])
+        let attributedString = NSAttributedString(string: "\(row)", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: textColor])
         return attributedString
     }
 }

@@ -18,6 +18,10 @@ class HomeViewController: UIViewController {
     
     var bannerView: GADBannerView?
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return isLightTheme ? .default : .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,9 +57,12 @@ class HomeViewController: UIViewController {
     
     func presentAlert(title: String, message: String, isUpgradeMessage: Bool) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Done", comment: ""), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Done", comment: ""), style: .cancel, handler: { (action) in
+            self.setNeedsStatusBarAppearanceUpdate()
+        }))
         if (isUpgradeMessage) {
             alert.addAction(UIAlertAction(title: NSLocalizedString("Upgrade", comment: ""), style: .default, handler: { (action) in
+                self.setNeedsStatusBarAppearanceUpdate()
                 self.rateApp(appId: "id1381419314") { success in
                     print("RateApp \(success)")
                 }
@@ -74,9 +81,9 @@ extension HomeViewController: HomeViewDelegate {
         
         navigationController?.navigationBar.barTintColor = isLightTheme ? UIColor.white : UIColor.black
         
-        UIApplication.shared.statusBarStyle = isLightTheme ? .default : .lightContent
+        setNeedsStatusBarAppearanceUpdate()
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: isLightTheme ? UIColor.black : UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: isLightTheme ? UIColor.black : UIColor.white]
     }
 
     func presentMailComposeViewController() {
@@ -110,7 +117,7 @@ extension HomeViewController: HomeViewDelegate {
             completion(UIApplication.shared.openURL(url))
             return
         }
-        UIApplication.shared.open(url, options: [:], completionHandler: completion)
+        UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: completion)
     }
 }
 
@@ -174,4 +181,9 @@ extension HomeViewController: GADBannerViewDelegate {
             bannerView.alpha = 1
         })
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

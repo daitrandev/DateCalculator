@@ -36,18 +36,26 @@ class DateDifferenceViewController: UIViewController, DateDifferenceInputCellDel
         return tableView
     }()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return isLightTheme ? .default : .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(DateDifferenceInputCell.self, forCellReuseIdentifier: inputCellId)
         tableView.register(DateDifferenceOutputCell.self, forCellReuseIdentifier: resultCellId)
         setupLayout()
         setupAds()
+        
+        if UserDefaults.standard.object(forKey: isLightThemeKey) == nil {
+            UserDefaults.standard.set(true, forKey: isLightThemeKey)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         isLightTheme = UserDefaults.standard.bool(forKey: isLightThemeKey)
         loadThemeAndUpdateFormat(isLightTheme: isLightTheme)
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshWhenAppBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshWhenAppBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -217,13 +225,13 @@ extension DateDifferenceViewController: HomeViewControllerDelegate {
         self.tableView.backgroundColor = isLightTheme ? UIColor.white : UIColor.black
             
         navigationController?.navigationBar.barTintColor = isLightTheme ? UIColor.white : UIColor.black
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: isLightTheme ? UIColor.black : UIColor.white, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 12)]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: isLightTheme ? UIColor.black : UIColor.white, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12)]
         navigationController?.navigationBar.tintColor = isLightTheme ? UIColor.purpleLilac : UIColor.orange
             
         tabBarController?.tabBar.tintColor = isLightTheme ? UIColor.purpleLilac : UIColor.orange
         tabBarController?.tabBar.barTintColor = isLightTheme ? UIColor.white : UIColor.black
             
-        UIApplication.shared.statusBarStyle = isLightTheme ? .default : .lightContent
+        setNeedsStatusBarAppearanceUpdate()
             
         view.backgroundColor = isLightTheme ? UIColor.white : UIColor.black
         
@@ -251,9 +259,12 @@ extension DateDifferenceViewController {
     
     func presentAlert(title: String, message: String, isUpgradeMessage: Bool) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Done", comment: ""), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Done", comment: ""), style: .cancel, handler: {(action) in
+            self.setNeedsStatusBarAppearanceUpdate()
+        }))
         if (isUpgradeMessage) {
             alert.addAction(UIAlertAction(title: NSLocalizedString("Upgrade", comment: ""), style: .default, handler: { (action) in
+                self.setNeedsStatusBarAppearanceUpdate()
                 self.rateApp(appId: "id1381419314") { success in
                     print("RateApp \(success)")
                 }
@@ -272,7 +283,7 @@ extension DateDifferenceViewController {
             completion(UIApplication.shared.openURL(url))
             return
         }
-        UIApplication.shared.open(url, options: [:], completionHandler: completion)
+        UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: completion)
     }
 }
 
@@ -355,3 +366,8 @@ extension DateDifferenceViewController : GADInterstitialDelegate {
 }
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}
