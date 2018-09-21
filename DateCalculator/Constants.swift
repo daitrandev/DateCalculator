@@ -8,7 +8,7 @@
 
 import Foundation
 
-let isFreeVersion: Bool = true
+let isFreeVersion: Bool = false
 let isLightThemeKey: String = "isLightTheme"
 
 

@@ -30,7 +30,9 @@ class LeapYearViewController: DateDifferenceViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
+        if (isFreeVersion) {
+            presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

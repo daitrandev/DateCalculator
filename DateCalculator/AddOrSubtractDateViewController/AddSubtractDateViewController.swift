@@ -32,7 +32,10 @@ class AddSubtractDateViewController: DateDifferenceViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
+        if (isFreeVersion) {
+            presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
+        }
+        
     }
     
     override func resetDate() {
