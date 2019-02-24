@@ -31,7 +31,7 @@ extension UIView {
 
 extension UINavigationController {
     open override var childForStatusBarStyle: UIViewController? {
-        return visibleViewController
+        return topViewController
     }
 }
 
@@ -74,6 +74,13 @@ extension Date {
         dateFormatter.dateStyle = .full
         let dateString = dateFormatter.string(from: self)
         return dateString
+    }
+}
+
+extension UIImage {
+    convenience init?(menuSection: MenuSection, theme: Theme) {
+        let menuIconName = menuSection.rawValue + "-" + theme.rawValue
+        self.init(named: menuIconName)
     }
 }
 

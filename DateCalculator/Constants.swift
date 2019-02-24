@@ -8,7 +8,7 @@
 
 import Foundation
 
-let isFreeVersion: Bool = false
+let isFreeVersion: Bool = Bundle.main.infoDictionary?["isFreeVersion"] as? Bool ?? true
 let isLightThemeKey: String = "isLightTheme"
 
 
