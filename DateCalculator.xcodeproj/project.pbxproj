@@ -62,6 +62,14 @@
 		FA0E8436222294FA00FB1752 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E842E222294FA00FB1752 /* Theme.swift */; };
 		FA0E84382222951A00FB1752 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E84372222951A00FB1752 /* MenuTableViewCell.swift */; };
 		FA0E84392222951A00FB1752 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E84372222951A00FB1752 /* MenuTableViewCell.swift */; };
+		FABAC0E1226B012100F64C19 /* UISideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAC0DD226B012100F64C19 /* UISideMenuNavigationController.swift */; };
+		FABAC0E2226B012100F64C19 /* UISideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAC0DD226B012100F64C19 /* UISideMenuNavigationController.swift */; };
+		FABAC0E3226B012100F64C19 /* SideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAC0DE226B012100F64C19 /* SideMenuManager.swift */; };
+		FABAC0E4226B012100F64C19 /* SideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAC0DE226B012100F64C19 /* SideMenuManager.swift */; };
+		FABAC0E5226B012100F64C19 /* SideMenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAC0DF226B012100F64C19 /* SideMenuTransition.swift */; };
+		FABAC0E6226B012100F64C19 /* SideMenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAC0DF226B012100F64C19 /* SideMenuTransition.swift */; };
+		FABAC0E7226B012100F64C19 /* UITableViewVibrantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAC0E0226B012100F64C19 /* UITableViewVibrantCell.swift */; };
+		FABAC0E8226B012100F64C19 /* UITableViewVibrantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAC0E0226B012100F64C19 /* UITableViewVibrantCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +129,10 @@
 		FA0E842D222294FA00FB1752 /* MenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		FA0E842E222294FA00FB1752 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		FA0E84372222951A00FB1752 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		FABAC0DD226B012100F64C19 /* UISideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISideMenuNavigationController.swift; sourceTree = "<group>"; };
+		FABAC0DE226B012100F64C19 /* SideMenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuManager.swift; sourceTree = "<group>"; };
+		FABAC0DF226B012100F64C19 /* SideMenuTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTransition.swift; sourceTree = "<group>"; };
+		FABAC0E0226B012100F64C19 /* UITableViewVibrantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewVibrantCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,7 +177,6 @@
 			children = (
 				230B5424209A058900F5331E /* DateCalculator */,
 				230B5423209A058900F5331E /* Products */,
-				3209D8E20EBA19D6DD73012F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,6 +192,7 @@
 		230B5424209A058900F5331E /* DateCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				FA6A9576226B00A8002F68A9 /* Vendors */,
 				230B5425209A058900F5331E /* AppDelegate.swift */,
 				232B4B8C209AA88B00ECBD35 /* MainTabBarController.swift */,
 				2383D72A20A19AE00024F16A /* Protocols.swift */,
@@ -228,13 +240,6 @@
 			path = DateDifferenceViewController;
 			sourceTree = "<group>";
 		};
-		3209D8E20EBA19D6DD73012F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		FA0E84262222947A00FB1752 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +270,25 @@
 				FA0E8427222294D300FB1752 /* MenuViewController.swift */,
 			);
 			path = MenuViewController;
+			sourceTree = "<group>";
+		};
+		FA6A9576226B00A8002F68A9 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				FABAC0DC226B012100F64C19 /* SideMenu */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		FABAC0DC226B012100F64C19 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				FABAC0DD226B012100F64C19 /* UISideMenuNavigationController.swift */,
+				FABAC0DE226B012100F64C19 /* SideMenuManager.swift */,
+				FABAC0DF226B012100F64C19 /* SideMenuTransition.swift */,
+				FABAC0E0226B012100F64C19 /* UITableViewVibrantCell.swift */,
+			);
+			path = SideMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,7 +340,7 @@
 				TargetAttributes = {
 					230B5421209A058900F5331E = {
 						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -388,15 +412,18 @@
 				23069654209FEF1D005D84D0 /* Constants.swift in Sources */,
 				230B5428209A058900F5331E /* DateDifferenceViewController.swift in Sources */,
 				2383D72B20A19AE00024F16A /* Protocols.swift in Sources */,
+				FABAC0E5226B012100F64C19 /* SideMenuTransition.swift in Sources */,
 				23E8B04620A534C600C683D3 /* WeekdayViewController.swift in Sources */,
 				230B5426209A058900F5331E /* AppDelegate.swift in Sources */,
 				23E8B04820A539A200C683D3 /* WeedayOutputCell.swift in Sources */,
+				FABAC0E7226B012100F64C19 /* UITableViewVibrantCell.swift in Sources */,
 				23DE9AA6209EA0EF00057016 /* DateDifferenceOutputCell.swift in Sources */,
 				23069648209FE738005D84D0 /* AddSubtractDateDurationCell.swift in Sources */,
 				23D822D520AABCAB00445485 /* LeapYearViewController.swift in Sources */,
 				FA0E84382222951A00FB1752 /* MenuTableViewCell.swift in Sources */,
 				23069650209FEC97005D84D0 /* HomeViewController.swift in Sources */,
 				232B4B8D209AA88B00ECBD35 /* MainTabBarController.swift in Sources */,
+				FABAC0E3226B012100F64C19 /* SideMenuManager.swift in Sources */,
 				23E8B04A20A54A4700C683D3 /* Weekday.swift in Sources */,
 				FA0E8428222294D300FB1752 /* MenuViewController.swift in Sources */,
 				FA0E8435222294FA00FB1752 /* Theme.swift in Sources */,
@@ -406,6 +433,7 @@
 				FA0E842F222294FA00FB1752 /* MenuSection.swift in Sources */,
 				23DE9AA4209EA0BB00057016 /* DateDifferenceInputCell.swift in Sources */,
 				232B4B8F209AACC600ECBD35 /* Extensions.swift in Sources */,
+				FABAC0E1226B012100F64C19 /* UISideMenuNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,15 +445,18 @@
 				FA0E840722228C8500FB1752 /* Constants.swift in Sources */,
 				FA0E840822228C8500FB1752 /* DateDifferenceViewController.swift in Sources */,
 				FA0E840922228C8500FB1752 /* Protocols.swift in Sources */,
+				FABAC0E6226B012100F64C19 /* SideMenuTransition.swift in Sources */,
 				FA0E840A22228C8500FB1752 /* WeekdayViewController.swift in Sources */,
 				FA0E840B22228C8500FB1752 /* AppDelegate.swift in Sources */,
 				FA0E840C22228C8500FB1752 /* WeedayOutputCell.swift in Sources */,
+				FABAC0E8226B012100F64C19 /* UITableViewVibrantCell.swift in Sources */,
 				FA0E840D22228C8500FB1752 /* DateDifferenceOutputCell.swift in Sources */,
 				FA0E840E22228C8500FB1752 /* AddSubtractDateDurationCell.swift in Sources */,
 				FA0E840F22228C8500FB1752 /* LeapYearViewController.swift in Sources */,
 				FA0E84392222951A00FB1752 /* MenuTableViewCell.swift in Sources */,
 				FA0E841022228C8500FB1752 /* HomeViewController.swift in Sources */,
 				FA0E841122228C8500FB1752 /* MainTabBarController.swift in Sources */,
+				FABAC0E4226B012100F64C19 /* SideMenuManager.swift in Sources */,
 				FA0E841222228C8500FB1752 /* Weekday.swift in Sources */,
 				FA0E8429222294D300FB1752 /* MenuViewController.swift in Sources */,
 				FA0E8436222294FA00FB1752 /* Theme.swift in Sources */,
@@ -435,6 +466,7 @@
 				FA0E8430222294FA00FB1752 /* MenuSection.swift in Sources */,
 				FA0E841522228C8500FB1752 /* DateDifferenceInputCell.swift in Sources */,
 				FA0E841622228C8500FB1752 /* Extensions.swift in Sources */,
+				FABAC0E2226B012100F64C19 /* UISideMenuNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,7 +666,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.DaiTranDev.DateCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -657,7 +689,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.DaiTranDev.DateCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

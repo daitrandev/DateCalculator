@@ -7,7 +7,6 @@ target 'DateCalculatorFree' do
 
   # Pods for DateCalculatorFree
   pod 'Google-Mobile-Ads-SDK'
-  pod 'SideMenu'
 end
 
 target 'DateCalculator' do
@@ -16,5 +15,4 @@ target 'DateCalculator' do
 
   # Pods for DateCalculator
   pod 'Google-Mobile-Ads-SDK'
-  pod 'SideMenu'
 end
