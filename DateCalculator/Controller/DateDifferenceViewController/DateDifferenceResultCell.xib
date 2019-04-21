@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DateDifferenceResultCell" customModule="DateCalculator" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="408" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhm-35-jeV">
+                    <rect key="frame" x="10" y="10" width="388" height="180"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outputs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8u-4g-87u">
+                            <rect key="frame" x="20" y="8" width="114.5" height="36"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXe-PX-hw9">
+                            <rect key="frame" x="16" y="52" width="356" height="0.5"/>
+                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="zuG-dP-MSw"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJS-Af-2oB">
+                            <rect key="frame" x="143" y="72.5" width="42.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAm-1L-c0t">
+                            <rect key="frame" x="219" y="72.5" width="10.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ab9-a6-Zsj">
+                            <rect key="frame" x="137" y="109.5" width="54" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7m7-Ge-2w1">
+                            <rect key="frame" x="219" y="109.5" width="10.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Years:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbM-Ok-p9F">
+                            <rect key="frame" x="140.5" y="146.5" width="47" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX5-T0-uwp">
+                            <rect key="frame" x="219" y="146.5" width="10.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.3882135176" green="0.0" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="ab9-a6-Zsj" firstAttribute="centerX" secondItem="mhm-35-jeV" secondAttribute="centerX" constant="-30" id="1QV-mL-Gh3"/>
+                        <constraint firstItem="aX5-T0-uwp" firstAttribute="bottom" secondItem="ZbM-Ok-p9F" secondAttribute="bottom" id="9NV-pn-BXG"/>
+                        <constraint firstAttribute="trailing" secondItem="fXe-PX-hw9" secondAttribute="trailing" constant="16" id="Cfa-Jm-Uob"/>
+                        <constraint firstItem="jJS-Af-2oB" firstAttribute="centerX" secondItem="mhm-35-jeV" secondAttribute="centerX" constant="-30" id="E5k-qA-56P"/>
+                        <constraint firstItem="7m7-Ge-2w1" firstAttribute="centerX" secondItem="mhm-35-jeV" secondAttribute="centerX" constant="30" id="EsG-9g-R1S"/>
+                        <constraint firstItem="aX5-T0-uwp" firstAttribute="centerX" secondItem="mhm-35-jeV" secondAttribute="centerX" constant="30" id="FQQ-rM-Gsk"/>
+                        <constraint firstItem="d8u-4g-87u" firstAttribute="top" secondItem="mhm-35-jeV" secondAttribute="top" constant="8" id="Grn-pG-erP"/>
+                        <constraint firstItem="mAm-1L-c0t" firstAttribute="top" secondItem="fXe-PX-hw9" secondAttribute="bottom" constant="20" id="HQG-J1-3p2"/>
+                        <constraint firstItem="fXe-PX-hw9" firstAttribute="top" secondItem="d8u-4g-87u" secondAttribute="bottom" constant="8" id="Iqz-YS-fok"/>
+                        <constraint firstItem="ab9-a6-Zsj" firstAttribute="top" secondItem="jJS-Af-2oB" secondAttribute="bottom" constant="16" id="OPp-0E-K0V"/>
+                        <constraint firstItem="fXe-PX-hw9" firstAttribute="leading" secondItem="mhm-35-jeV" secondAttribute="leading" constant="16" id="UFi-nW-TLe"/>
+                        <constraint firstItem="ZbM-Ok-p9F" firstAttribute="centerX" secondItem="mhm-35-jeV" secondAttribute="centerX" constant="-30" id="XVK-IY-Jxh"/>
+                        <constraint firstItem="mAm-1L-c0t" firstAttribute="centerX" secondItem="mhm-35-jeV" secondAttribute="centerX" constant="30" id="Xk4-DH-NOC"/>
+                        <constraint firstAttribute="bottom" secondItem="ZbM-Ok-p9F" secondAttribute="bottom" constant="12.5" id="bRe-65-dQ7"/>
+                        <constraint firstItem="ZbM-Ok-p9F" firstAttribute="top" secondItem="ab9-a6-Zsj" secondAttribute="bottom" constant="16" id="fmB-6e-Sqi"/>
+                        <constraint firstItem="jJS-Af-2oB" firstAttribute="top" secondItem="fXe-PX-hw9" secondAttribute="bottom" constant="20" id="spW-52-922"/>
+                        <constraint firstItem="7m7-Ge-2w1" firstAttribute="bottom" secondItem="ab9-a6-Zsj" secondAttribute="bottom" id="u3Y-TX-v2Q"/>
+                        <constraint firstItem="mAm-1L-c0t" firstAttribute="bottom" secondItem="jJS-Af-2oB" secondAttribute="bottom" id="v9u-ji-UDi"/>
+                        <constraint firstItem="d8u-4g-87u" firstAttribute="leading" secondItem="mhm-35-jeV" secondAttribute="leading" constant="20" id="xWG-yV-enY"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="mhm-35-jeV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="7nl-mg-P0q"/>
+                <constraint firstAttribute="trailing" secondItem="mhm-35-jeV" secondAttribute="trailing" constant="10" id="Tcc-vc-OvX"/>
+                <constraint firstItem="mhm-35-jeV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="aDg-Qu-NfD"/>
+                <constraint firstAttribute="bottom" secondItem="mhm-35-jeV" secondAttribute="bottom" constant="10" id="jri-69-AFI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="containerView" destination="mhm-35-jeV" id="hNa-AA-K1L"/>
+                <outlet property="dayLabel" destination="mAm-1L-c0t" id="c9w-Bm-bFT"/>
+                <outlet property="dayTitleLabel" destination="jJS-Af-2oB" id="R6Y-fr-0xz"/>
+                <outlet property="monthLabel" destination="7m7-Ge-2w1" id="mvU-eR-sjU"/>
+                <outlet property="monthTitleLabel" destination="ab9-a6-Zsj" id="grh-rk-oUH"/>
+                <outlet property="outputTitleLabel" destination="d8u-4g-87u" id="bw3-8X-7b3"/>
+                <outlet property="yearLabel" destination="aX5-T0-uwp" id="NEP-gO-aIl"/>
+                <outlet property="yearTitleLabel" destination="ZbM-Ok-p9F" id="jPd-IU-yZZ"/>
+            </connections>
+            <point key="canvasLocation" x="213.75" y="147.88732394366198"/>
+        </view>
+    </objects>
+</document>

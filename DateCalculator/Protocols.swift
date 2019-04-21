@@ -16,14 +16,8 @@ protocol HomeViewDelegate: class {
     func presentShareAction()
 }
 
-protocol HomeViewControllerDelegate: class {
-    func loadThemeAndUpdateFormat(isLightTheme: Bool)
-    func loadInterstitial()
-}
-
 protocol DateDifferenceInputCellDelegate: class {
-    func calculateAndUpdateView()
-    func updateDataModel(containingCell tag: Int, updated date: Date)
+    func updateShowingDifferenceDate(dateDifferenceResult: DateDifferenceResult)
 }
 
 protocol AddSubtractTableViewCellDelegate: class {
@@ -32,5 +26,5 @@ protocol AddSubtractTableViewCellDelegate: class {
 }
 
 protocol WeekdaySwitchDelegate: class {
-    func updateDataModel(containingCell tag: Int, old weekdayObj: WeekdayObj)
+//    func updateDataModel(containingCell tag: Int, old weekdayObj: WeekdayObj)
 }

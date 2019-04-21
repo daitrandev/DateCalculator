@@ -62,7 +62,7 @@ class LeapYearViewController: DateDifferenceViewController {
         cell?.isLeapYear = isLeapYear
     }
     
-    override func updateDataModel(containingCell tag: Int, updated date: Date) {
+    override func updateShowingInputDate(containingCell tag: Int, updated date: Date) {
         guard let currentYear = Calendar.current.dateComponents([.year], from: date).year else { return }
         checkingYear = currentYear
     }

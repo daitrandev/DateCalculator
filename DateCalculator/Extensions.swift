@@ -37,6 +37,8 @@ extension UINavigationController {
 
 extension UIColor {
     static let purpleLilac = UIColor(red: 91/255, green: 41/255, blue: 173/255, alpha: 1)
+    static let lowFlattenPurple = UIColor(red: 90/255, green: 73/255, blue: 159/255, alpha: 1)
+    static let highFlattenPurple = UIColor(red: 115/255, green: 95/255, blue: 194/255, alpha: 1)
 }
 
 extension Date {
