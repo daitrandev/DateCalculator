@@ -42,7 +42,6 @@ class BaseViewController: UIViewController {
     private func setupLayout() {
         view.backgroundColor = .white
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "refresh"), style: .plain, target: self, action: #selector(onRefreshAction))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "home"), style: .plain, target: self, action: #selector(didTapHome))
         navigationController?.navigationBar.barTintColor = .white
         tabBarController?.tabBar.barTintColor = .white
         
@@ -55,18 +54,6 @@ class BaseViewController: UIViewController {
             bannerView = createAndLoadBannerView()
             interstitial = createInterstitial()
         }
-    }
-    
-    @objc final func didTapHome() {
-        let menuViewController = MenuViewController()
-        menuViewController.delegate = self
-        let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: menuViewController)
-        
-        SideMenuManager.default.menuLeftNavigationController?.navigationBar.backgroundColor = .green
-        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
-        SideMenuManager.default.menuFadeStatusBar = false
-        SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
-        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
     }
  
     @objc func onRefreshAction() {
@@ -92,65 +79,6 @@ extension BaseViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
-    }
-}
-
-extension BaseViewController: MenuViewControllerDelegate {
-    func changeTheme() {
-        isLightTheme = !isLightTheme
-        UserDefaults.standard.set(isLightTheme, forKey: isLightThemeKey)
-        loadTheme(isLightTheme: isLightTheme)
-    }
-    
-    func presentMailComposeViewController() {
-        let mailComposeViewController = configuredMailComposeViewController()
-        if MFMailComposeViewController.canSendMail() {
-            self.present(mailComposeViewController, animated: true, completion: nil)
-        }
-    }
-    
-    func presentRatingAction() {
-        let appId = isFreeVersion ? "id1381419764" : "id1381419314"
-        rateApp(appId: appId) { success in
-            print("RateApp \(success)")
-        }
-    }
-    
-    func presentShareAction() {
-        let appId = isFreeVersion ? "id1381419764" : "id1381419314"
-        let message: String = "https://itunes.apple.com/app/\(appId)"
-        let vc = UIActivityViewController(activityItems: [message], applicationActivities: [])
-        vc.popoverPresentationController?.sourceView = self.view
-        present(vc, animated: true)
-    }
-    
-    func presentAlert(title: String, message: String, isUpgradeMessage: Bool) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Done", comment: ""), style: .cancel, handler: {(action) in
-            self.setNeedsStatusBarAppearanceUpdate()
-        }))
-        if (isUpgradeMessage) {
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Upgrade", comment: ""), style: .default, handler: { (action) in
-                self.setNeedsStatusBarAppearanceUpdate()
-                self.rateApp(appId: "id1381419314") { success in
-                    print("RateApp \(success)")
-                }
-            }))
-        }
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func rateApp(appId: String, completion: @escaping ((_ success: Bool)->())) {
-        guard let url = URL(string : "itms-apps://itunes.apple.com/app/" + appId) else {
-            completion(false)
-            return
-        }
-        guard #available(iOS 10, *) else {
-            completion(UIApplication.shared.openURL(url))
-            return
-        }
-        UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: completion)
     }
 }
 
@@ -228,22 +156,8 @@ extension BaseViewController: GADInterstitialDelegate {
         return interstitial
     }
     
-    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
-        //presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
-        
-    }
-    
-    func interstitialDidFail(toPresentScreen ad: GADInterstitial) {
-        //presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
-    }
-    
     func interstitialDidReceiveAd(_ ad: GADInterstitial) {
         ad.present(fromRootViewController: self)
-    }
-    
-    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-        presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
-        interstitial = createInterstitial()
     }
 }
 

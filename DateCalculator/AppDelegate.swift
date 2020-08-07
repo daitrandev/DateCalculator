@@ -21,8 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.rootViewController = MainTabBarController()
         
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-7005013141953077~5186770009")
-
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         return true
     }
