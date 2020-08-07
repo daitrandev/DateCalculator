@@ -31,12 +31,6 @@ class DateDifferenceViewController: BaseViewController, DateDifferenceInputCellD
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        isLightTheme = UserDefaults.standard.bool(forKey: isLightThemeKey)
-        loadTheme(isLightTheme: isLightTheme)
-    }
-    
 //    func updateTableView() {
 //        for row in 0..<tableView.numberOfRows(inSection: 1) {
 //            let indexPath = IndexPath(row: row, section: 1)
@@ -55,27 +49,9 @@ class DateDifferenceViewController: BaseViewController, DateDifferenceInputCellD
 //        updateTableView()
     }
     
-    @objc override func onRefreshAction() {
+    @objc override func didTapRefresh() {
         let inputDateCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! TwoDateInputCell
         inputDateCell.refreshDate()
-    }
-    
-    override func loadTheme(isLightTheme: Bool) {
-        self.isLightTheme = isLightTheme
-        self.tableView.backgroundColor = isLightTheme ? UIColor.white : UIColor.black
-        
-        navigationController?.navigationBar.barTintColor = isLightTheme ? UIColor.white : UIColor.black
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: isLightTheme ? UIColor.black : UIColor.white, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12)]
-        navigationController?.navigationBar.tintColor = isLightTheme ? UIColor.purpleLilac : UIColor.orange
-        
-        tabBarController?.tabBar.tintColor = isLightTheme ? UIColor.purpleLilac : UIColor.orange
-        tabBarController?.tabBar.barTintColor = isLightTheme ? UIColor.white : UIColor.black
-        
-        setNeedsStatusBarAppearanceUpdate()
-        
-        view.backgroundColor = isLightTheme ? UIColor.white : UIColor.black
-        
-        tableView.reloadData()
     }
 }
 

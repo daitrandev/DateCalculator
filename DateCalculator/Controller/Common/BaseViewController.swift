@@ -14,14 +14,9 @@ import GoogleMobileAds
 class BaseViewController: UIViewController {
     private var bannerView: GADBannerView?
     private var interstitial: GADInterstitial?
-    var isLightTheme = UserDefaults.standard.bool(forKey: isLightThemeKey)
     
     let inputCellId = "inputCellId"
     let resultCellId = "resultCellId"
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return isLightTheme ? .default : .lightContent
-    }
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -36,14 +31,13 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        setupDarkMode()
         setupAds()
     }
     
     private func setupLayout() {
         view.backgroundColor = .white
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "refresh"), style: .plain, target: self, action: #selector(onRefreshAction))
-        navigationController?.navigationBar.barTintColor = .white
-        tabBarController?.tabBar.barTintColor = .white
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "refresh"), style: .plain, target: self, action: #selector(didTapRefresh))
         
         view.addSubview(tableView)
         tableView.constraintTo(top: view.layoutMarginsGuide.topAnchor, bottom: view.layoutMarginsGuide.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, topConstant: 0, bottomConstant: 0, leftConstant: 0, rightConstant: 0)
@@ -56,12 +50,23 @@ class BaseViewController: UIViewController {
         }
     }
  
-    @objc func onRefreshAction() {
+    @objc func didTapRefresh() {
        
     }
     
-    func loadTheme(isLightTheme: Bool) {
-        
+    func setupDarkMode() {
+        navigationController?.navigationBar.isTranslucent = false
+        if #available(iOS 13, *) {
+            navigationController?.navigationBar.backgroundColor = .systemBackground
+            navigationController?.navigationBar.tintColor = traitCollection.userInterfaceStyle.themeColor
+            tabBarController?.tabBar.tintColor = traitCollection.userInterfaceStyle.themeColor
+            tabBarController?.tabBar.backgroundColor = .systemBackground
+        } else {
+            navigationController?.navigationBar.backgroundColor = .white
+            navigationController?.navigationBar.tintColor = .purpleLilac
+            tabBarController?.tabBar.tintColor = .purpleLilac
+            tabBarController?.tabBar.backgroundColor = .white
+        }
     }
 }
 
@@ -82,28 +87,9 @@ extension BaseViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension BaseViewController:  MFMailComposeViewControllerDelegate {
-    func configuredMailComposeViewController() -> MFMailComposeViewController {
-        let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self
-        
-        mailComposerVC.setToRecipients(["universappteam@gmail.com"])
-        mailComposerVC.setSubject("[Date-Converter++ Feedback]")
-        
-        return mailComposerVC
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-}
-
 extension BaseViewController: GADBannerViewDelegate {
-    func createAndLoadBannerView() -> GADBannerView? {
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        guard let bannerView = bannerView else {
-            return nil
-        }
+    private func createAndLoadBannerView() -> GADBannerView? {
+        let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         bannerView.adUnitID = "ca-app-pub-7005013141953077/8716071035"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
@@ -144,12 +130,8 @@ extension BaseViewController: GADBannerViewDelegate {
 }
 
 extension BaseViewController: GADInterstitialDelegate {
-    fileprivate func createInterstitial() -> GADInterstitial? {
-        interstitial = GADInterstitial(adUnitID: "ca-app-pub-7005013141953077/8664100148")
-        
-        guard let interstitial = interstitial else {
-            return nil
-        }
+    private func createInterstitial() -> GADInterstitial? {
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-7005013141953077/8664100148")
         
         interstitial.delegate = self
         
@@ -159,9 +141,4 @@ extension BaseViewController: GADInterstitialDelegate {
     func interstitialDidReceiveAd(_ ad: GADInterstitial) {
         ad.present(fromRootViewController: self)
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-    return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

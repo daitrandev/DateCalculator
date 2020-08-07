@@ -29,7 +29,6 @@ class DateDifferenceResultCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        setupLocalization()
         
         let layer = CAGradientLayer()
         layer.frame = containerView.bounds

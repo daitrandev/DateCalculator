@@ -17,6 +17,7 @@
 		2383D72B20A19AE00024F16A /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2383D72A20A19AE00024F16A /* Protocols.swift */; };
 		23E7FBAD20A1E297008523FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23E7FBAF20A1E297008523FD /* InfoPlist.strings */; };
 		23E7FBB020A1E29A008523FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23E7FBB220A1E29A008523FD /* Localizable.strings */; };
+		F848FC9A24DD994B0018E692 /* UITraitCollection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F848FC9924DD994B0018E692 /* UITraitCollection+Ext.swift */; };
 		FA0E1DBF226C048800E563F6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1DAD226C038400E563F6 /* BaseViewController.swift */; };
 		FA0E1DC0226C048800E563F6 /* DateDifferenceResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1DAF226C038400E563F6 /* DateDifferenceResultCell.swift */; };
 		FA0E1DC1226C048800E563F6 /* DateDifferenceResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0E1DAE226C038400E563F6 /* DateDifferenceResultCell.xib */; };
@@ -88,6 +89,7 @@
 		23E8B04520A534C600C683D3 /* WeekdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayViewController.swift; sourceTree = "<group>"; };
 		23E8B04720A539A200C683D3 /* WeedayOutputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeedayOutputCell.swift; sourceTree = "<group>"; };
 		23E8B04920A54A4700C683D3 /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
+		F848FC9924DD994B0018E692 /* UITraitCollection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITraitCollection+Ext.swift"; sourceTree = "<group>"; };
 		FA0E1DAD226C038400E563F6 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FA0E1DAE226C038400E563F6 /* DateDifferenceResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateDifferenceResultCell.xib; sourceTree = "<group>"; };
 		FA0E1DAF226C038400E563F6 /* DateDifferenceResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateDifferenceResultCell.swift; sourceTree = "<group>"; };
@@ -153,7 +155,7 @@
 				230B5425209A058900F5331E /* AppDelegate.swift */,
 				232B4B8C209AA88B00ECBD35 /* MainTabBarController.swift */,
 				2383D72A20A19AE00024F16A /* Protocols.swift */,
-				232B4B8E209AACC600ECBD35 /* Extensions.swift */,
+				F848FC9B24DD9C5C0018E692 /* Extensions */,
 				23069653209FEF1D005D84D0 /* Constants.swift */,
 				23E7FBAF20A1E297008523FD /* InfoPlist.strings */,
 				23E7FBB220A1E29A008523FD /* Localizable.strings */,
@@ -202,6 +204,15 @@
 			children = (
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F848FC9B24DD9C5C0018E692 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				232B4B8E209AACC600ECBD35 /* Extensions.swift */,
+				F848FC9924DD994B0018E692 /* UITraitCollection+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FA0E1DC9226C589000E563F6 /* Common */ = {
@@ -354,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F848FC9A24DD994B0018E692 /* UITraitCollection+Ext.swift in Sources */,
 				23069654209FEF1D005D84D0 /* Constants.swift in Sources */,
 				230B5428209A058900F5331E /* DateDifferenceViewController.swift in Sources */,
 				2383D72B20A19AE00024F16A /* Protocols.swift in Sources */,
