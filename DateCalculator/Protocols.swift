@@ -9,13 +9,6 @@
 import UIKit
 import GoogleMobileAds
 
-protocol HomeViewDelegate: class {
-    func loadTheme(isLightTheme: Bool)
-    func presentMailComposeViewController()
-    func presentRatingAction()
-    func presentShareAction()
-}
-
 protocol DateDifferenceInputCellDelegate: class {
     func updateShowingDifferenceDate(dateDifferenceResult: DateDifferenceResult)
 }
