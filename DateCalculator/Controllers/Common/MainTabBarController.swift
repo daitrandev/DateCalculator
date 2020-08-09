@@ -17,10 +17,10 @@ class MainTabBarController: UITabBarController {
         dateDifferenceNav.tabBarItem.title = "The Difference"
         dateDifferenceNav.tabBarItem.image = #imageLiteral(resourceName: "difference")
         
-//        let addSubtractDateViewController = AddSubtractDateViewController()
-//        let addSubtractDateNav = UINavigationController(rootViewController: addSubtractDateViewController)
-//        addSubtractDateNav.tabBarItem.title = NSLocalizedString("AddOrSubtract", comment: "")
-//        addSubtractDateNav.tabBarItem.image = #imageLiteral(resourceName: "add-subtract")
+        let addSubtractDateViewController = AddSubtractDateViewController()
+        let addSubtractDateNav = UINavigationController(rootViewController: addSubtractDateViewController)
+        addSubtractDateNav.tabBarItem.title = "Add Or Subtract"
+        addSubtractDateNav.tabBarItem.image = #imageLiteral(resourceName: "add-subtract")
 //
 //        let weekdayViewController = WeekdayViewController()
 //        let weekdayNav = UINavigationController(rootViewController: weekdayViewController)
@@ -32,6 +32,6 @@ class MainTabBarController: UITabBarController {
 //        leapYearNav.tabBarItem.title = NSLocalizedString("LeapYear", comment: "")
 //        leapYearNav.tabBarItem.image = #imageLiteral(resourceName: "leapYear")
 
-        viewControllers = [dateDifferenceNav]//, addSubtractDateNav, weekdayNav, leapYearNav]
+        viewControllers = [dateDifferenceNav, addSubtractDateNav]//, weekdayNav, leapYearNav]
     }
 }

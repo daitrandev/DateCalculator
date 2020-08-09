@@ -9,133 +9,173 @@
 import UIKit
 import GoogleMobileAds
 
-class AddSubtractDateViewController: DateDifferenceViewController {
+class AddSubtractDateViewController: UIViewController {
+    @IBOutlet weak var inputContainerView: UIView!
+    @IBOutlet weak var outputContainerView: UIView!
+    @IBOutlet weak var inputDateTextField: UITextField!
+    @IBOutlet weak var dayPickerView: UIPickerView!
+    @IBOutlet weak var monthPickerView: UIPickerView!
+    @IBOutlet weak var yearPickerView: UIPickerView!
+    @IBOutlet weak var outputDateLabel: UILabel!
     
-    let addSubtractDateCellId = "addSubtractCellId"
+    private var viewModel: AddSubtractDateViewModelType
     
-    var dayMonthYear: [Int] = [0, 0, 0]
+    private lazy var datePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.minimumDate = Calendar.current.date(byAdding: Calendar.Component.year, value: -1000, to: Date())
+        picker.maximumDate = Calendar.current.date(byAdding: Calendar.Component.year, value: 1000, to: Date())
+        picker.datePickerMode = .date
+        picker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
+        return picker
+    }()
+    
+    private lazy var toolbar: UIToolbar = {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        toolBar.isTranslucent = true
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDone))
+        toolBar.setItems([flexibleSpace, doneBarButton], animated: true)
+        return toolBar
+    }()
+    
+    init() {
+        viewModel = AddSubtractDateViewModel()
+        super.init(
+            nibName: String(describing: AddSubtractDateViewController.self),
+            bundle: .main
+        )
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = NSLocalizedString("AddOrSubtractADuration", comment: "") 
-        tableView.register(AddSubtractDateDurationCell.self, forCellReuseIdentifier: addSubtractDateCellId)
+        viewModel.delegate = self
         
-        let currentDate = Date()
-        let dateString = currentDate.getDateString()
-        resultData = [("Date", dateString)]
+        navigationItem.title = "Add Or Subtract A Duration"
         
-    }
-    
-    override func setupAds() {
-        // Does nothing
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if isFreeVersion {
-            presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
+        [inputContainerView, outputContainerView].forEach {
+            $0?.backgroundColor = UIColor.purpleLilac
+            $0?.makeRounded(cornerRadius: 10)
         }
         
-    }
-    
-    override func resetDate() {
-        let section = 0
-        for row in 0..<tableView.numberOfRows(inSection: section) {
-            let indexPath = IndexPath(row: row, section: section)
-            if let cell = tableView.cellForRow(at: indexPath) as? AddSubtractDateDurationCell {
-                cell.resetDate()
-                continue
-            }
-            let cell = tableView.cellForRow(at: indexPath) as? DateDifferenceInputCell
-            cell?.resetDate()
+        [dayPickerView, monthPickerView, yearPickerView].forEach {
+            $0?.delegate = self
+            $0?.dataSource = self
+            $0?.selectRow(viewModel.maximumDurationNumber, inComponent: 0, animated: true)
         }
         
-        inputDates = [Date()]
-        dayMonthYear = [0, 0, 0]
-
-    }
+        viewModel.inputDuration = (days: 0, months: 0, years: 0)
+        viewModel.inputDate = Date()
         
-    override func onRefreshAction() {
-        resetDate()
-        calculateAndUpdateView()
-    }
-    
-    override func calculateAndUpdateView() {
-        resultData = calculateDateFromDuration(from: dayMonthYear)
-        updateTableView()
-    }
-    
-    func calculateDateFromDuration(from dayMonthYear: [Int]) -> [(String, String)] {
+        inputDateTextField.inputView = datePicker
+        inputDateTextField.inputAccessoryView = toolbar
+        inputDateTextField.layer.borderWidth = 2
+        inputDateTextField.layer.borderColor = UIColor.clear.cgColor
+        inputDateTextField.delegate = self
         
-        var inputDate: Date = inputDates[0]
-        
-        let calendarComponents = [Calendar.Component.day, Calendar.Component.month, Calendar.Component.year]
-        for i in 0..<calendarComponents.count {
-            let value = dayMonthYear[i]
-            if let newDate = Calendar.current.date(byAdding: calendarComponents[i], value: value, to: inputDate) {
-                inputDate = newDate
-            }
-        }
-        
-        var result = [("Day", "")]
-        
-        let dateString = inputDate.getDateString()
-        result[0].1 = dateString
-        
-        return result
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(named: "refresh"),
+            style: .plain,
+            target: self,
+            action: #selector(didTapRefresh)
+        )
+        navigationController?.navigationBar.tintColor = UIColor.purpleLilac
+        tabBarController?.tabBar.tintColor = UIColor.purpleLilac
     }
     
-    override func updateTableView() {
-        for row in 0..<tableView.numberOfRows(inSection: 1) {
-            let indexPath = IndexPath(row: row, section: 1)
-            let cell = tableView.cellForRow(at: indexPath) as! DateDifferenceOutputCell
-            cell.resultData = resultData[row]
-        }
+    @objc private func didTapRefresh() {
+        viewModel.inputDuration = (days: 0, months: 0, years: 0)
+        viewModel.inputDate = Date()
     }
     
-}
-
-extension AddSubtractDateViewController: AddSubtractTableViewCellDelegate {
-    func updateDataModel(dayMonthYear: [Int]) {
-        self.dayMonthYear = dayMonthYear
+    @objc private func didTapDone() {
+        inputDateTextField.resignFirstResponder()
+    }
+    
+    @objc private func datePickerValueChanged() {
+        viewModel.inputDate = datePicker.date
     }
 }
 
-extension AddSubtractDateViewController {
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return indexPath.row == 0 ? 85 : 225
-        }
-        return 60
+extension AddSubtractDateViewController: AddSubtractDateViewModelDelegate {
+    func render(inputDate: Date) {
+        inputDateTextField.text = inputDate.getDateString()
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: inputCellId, for: indexPath) as! DateDifferenceInputCell
-                cell.delegate = self
-                cell.loadTheme(isLightTheme: isLightTheme)
-                cell.disableUserInteraction(isFreeVersion: isFreeVersion)
-                return cell
-            }
-            let cell = tableView.dequeueReusableCell(withIdentifier: addSubtractDateCellId, for: indexPath) as! AddSubtractDateDurationCell
-            cell.delegate = self
-            cell.loadTheme(isLightTheme: isLightTheme)
-            cell.disableUserInteraction(isFreeVersion: isFreeVersion)
-            return cell
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: resultCellId, for: indexPath) as! DateDifferenceOutputCell
-        cell.resultData = resultData[indexPath.row]
-        cell.loadTheme(isLightTheme: isLightTheme)
-        return cell
+    func render(outputDate: Date) {
+        outputDateLabel.text = outputDate.getDateString()
+    }
+    
+    func render(duration: AddSubtractDateViewModel.Duration) {
+        dayPickerView.selectRow(
+            duration.days + viewModel.maximumDurationNumber,
+            inComponent: 0,
+            animated: true
+        )
+        
+        monthPickerView.selectRow(
+            duration.months + viewModel.maximumDurationNumber,
+            inComponent: 0,
+            animated: true
+        )
+        
+        yearPickerView.selectRow(
+            duration.years + viewModel.maximumDurationNumber,
+            inComponent: 0,
+            animated: true
+        )
     }
 }
 
+extension AddSubtractDateViewController: UITextFieldDelegate {
+    
+}
 
+extension AddSubtractDateViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return (viewModel.maximumDurationNumber * 2) + 1
+    }
+}
 
-
-
-
-
-
+extension AddSubtractDateViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView,
+                    didSelectRow row: Int,
+                    inComponent component: Int) {
+        if pickerView == dayPickerView {
+            viewModel.inputDuration.days = row - viewModel.maximumDurationNumber
+            return
+        }
+        
+        if pickerView == monthPickerView {
+            viewModel.inputDuration.months = row - viewModel.maximumDurationNumber
+            return
+        }
+        
+        if pickerView == yearPickerView {
+            viewModel.inputDuration.years = row - viewModel.maximumDurationNumber
+            return
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView,
+                    attributedTitleForRow row: Int,
+                    forComponent component: Int) -> NSAttributedString? {
+        let attributedString = NSAttributedString(
+            string: "\(row - viewModel.maximumDurationNumber)",
+            attributes: [
+                NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14),
+                NSAttributedString.Key.foregroundColor: UIColor.white
+            ]
+        )
+        return attributedString
+    }
+}

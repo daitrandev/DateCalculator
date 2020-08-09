@@ -22,11 +22,13 @@
 		F841D82024DFA92400BCA289 /* DateDifferenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F841D81F24DFA92400BCA289 /* DateDifferenceViewModel.swift */; };
 		F841D82324DFAD5400BCA289 /* DateDifferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F841D82224DFAD5400BCA289 /* DateDifferenceViewController.xib */; };
 		F848FC9A24DD994B0018E692 /* UITraitCollection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F848FC9924DD994B0018E692 /* UITraitCollection+Ext.swift */; };
+		F85DFCC724DFF298005CA914 /* AddSubtractDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F85DFCC624DFF298005CA914 /* AddSubtractDateViewController.xib */; };
+		F85DFCC824DFF6A8005CA914 /* AddSubtractDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237B1F84209B0DC900E87132 /* AddSubtractDateViewController.swift */; };
+		F85DFCCA24DFF6D3005CA914 /* AddSubtractDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DFCC924DFF6D3005CA914 /* AddSubtractDateViewModel.swift */; };
 		FA0E1DC6226C04B600E563F6 /* DateDifferenceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1DC5226C04B600E563F6 /* DateDifferenceResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		23069647209FE738005D84D0 /* AddSubtractDateDurationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubtractDateDurationCell.swift; sourceTree = "<group>"; };
 		230B5422209A058900F5331E /* DateCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DateCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		230B5425209A058900F5331E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		230B5427209A058900F5331E /* DateDifferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDifferenceViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,8 @@
 		F841D81F24DFA92400BCA289 /* DateDifferenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDifferenceViewModel.swift; sourceTree = "<group>"; };
 		F841D82224DFAD5400BCA289 /* DateDifferenceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateDifferenceViewController.xib; sourceTree = "<group>"; };
 		F848FC9924DD994B0018E692 /* UITraitCollection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITraitCollection+Ext.swift"; sourceTree = "<group>"; };
+		F85DFCC624DFF298005CA914 /* AddSubtractDateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSubtractDateViewController.xib; sourceTree = "<group>"; };
+		F85DFCC924DFF6D3005CA914 /* AddSubtractDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubtractDateViewModel.swift; sourceTree = "<group>"; };
 		FA0E1DC5226C04B600E563F6 /* DateDifferenceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDifferenceResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				237B1F84209B0DC900E87132 /* AddSubtractDateViewController.swift */,
-				23069647209FE738005D84D0 /* AddSubtractDateDurationCell.swift */,
+				F85DFCC624DFF298005CA914 /* AddSubtractDateViewController.xib */,
+				F85DFCC924DFF6D3005CA914 /* AddSubtractDateViewModel.swift */,
 			);
 			path = AddOrSubtractDateViewController;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F85DFCC724DFF298005CA914 /* AddSubtractDateViewController.xib in Resources */,
 				23E7FBB020A1E29A008523FD /* Localizable.strings in Resources */,
 				F841D82324DFAD5400BCA289 /* DateDifferenceViewController.xib in Resources */,
 				230B5430209A058A00F5331E /* LaunchScreen.storyboard in Resources */,
@@ -313,7 +319,9 @@
 				F841D81E24DF9F8A00BCA289 /* AdsUnitIDs.swift in Sources */,
 				F841D81424DF90B100BCA289 /* UIView+Ext.swift in Sources */,
 				230B5428209A058900F5331E /* DateDifferenceViewController.swift in Sources */,
+				F85DFCC824DFF6A8005CA914 /* AddSubtractDateViewController.swift in Sources */,
 				F841D81824DF90DB00BCA289 /* UIColor+Ext.swift in Sources */,
+				F85DFCCA24DFF6D3005CA914 /* AddSubtractDateViewModel.swift in Sources */,
 				F841D81A24DF90F600BCA289 /* Date+Utils.swift in Sources */,
 				FA0E1DC6226C04B600E563F6 /* DateDifferenceResult.swift in Sources */,
 				F841D81C24DF919A00BCA289 /* Weekday.swift in Sources */,
