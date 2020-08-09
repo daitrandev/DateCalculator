@@ -27,6 +27,7 @@ class DateDifferenceViewController: UIViewController {
         picker.minimumDate = Calendar.current.date(byAdding: Calendar.Component.year, value: -1000, to: Date())
         picker.maximumDate = Calendar.current.date(byAdding: Calendar.Component.year, value: 1000, to: Date())
         picker.datePickerMode = .date
+        picker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
         return picker
     }()
     
@@ -89,13 +90,17 @@ class DateDifferenceViewController: UIViewController {
         viewModel.clear()
     }
     
-    @objc func didTapDone() {
+    @objc private func datePickerValueChanged() {
         if currentEditingTextField == firstInputDateTextField {
             viewModel.firstInputDate = datePicker.date
         } else if currentEditingTextField == secondInputDateTextField {
             viewModel.secondInputDate = datePicker.date
         }
+    }
+    
+    @objc func didTapDone() {
         currentEditingTextField?.resignFirstResponder()
+        currentEditingTextField = nil
         
         [firstInputDateTextField, secondInputDateTextField].forEach {
             $0?.layer.borderColor = UIColor.clear.cgColor
