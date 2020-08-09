@@ -14,6 +14,8 @@
 		232B4B8D209AA88B00ECBD35 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232B4B8C209AA88B00ECBD35 /* MainTabBarController.swift */; };
 		23E7FBAD20A1E297008523FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23E7FBAF20A1E297008523FD /* InfoPlist.strings */; };
 		23E7FBB020A1E29A008523FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23E7FBB220A1E29A008523FD /* Localizable.strings */; };
+		F83A8FF224E0306500A05356 /* WeekdayToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83A8FF124E0306500A05356 /* WeekdayToggleCell.swift */; };
+		F83A8FF424E0307200A05356 /* WeekdayToggleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F83A8FF324E0307200A05356 /* WeekdayToggleCell.xib */; };
 		F841D81424DF90B100BCA289 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F841D81324DF90B100BCA289 /* UIView+Ext.swift */; };
 		F841D81824DF90DB00BCA289 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F841D81724DF90DB00BCA289 /* UIColor+Ext.swift */; };
 		F841D81A24DF90F600BCA289 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F841D81924DF90F600BCA289 /* Date+Utils.swift */; };
@@ -25,6 +27,9 @@
 		F85DFCC724DFF298005CA914 /* AddSubtractDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F85DFCC624DFF298005CA914 /* AddSubtractDateViewController.xib */; };
 		F85DFCC824DFF6A8005CA914 /* AddSubtractDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237B1F84209B0DC900E87132 /* AddSubtractDateViewController.swift */; };
 		F85DFCCA24DFF6D3005CA914 /* AddSubtractDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DFCC924DFF6D3005CA914 /* AddSubtractDateViewModel.swift */; };
+		F85DFCCB24E00766005CA914 /* WeekdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E8B04520A534C600C683D3 /* WeekdayViewController.swift */; };
+		F85DFCCD24E0079E005CA914 /* WeekdayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F85DFCCC24E0079E005CA914 /* WeekdayViewController.xib */; };
+		F85DFCCF24E011CC005CA914 /* WeekdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DFCCE24E011CC005CA914 /* WeekdayViewModel.swift */; };
 		FA0E1DC6226C04B600E563F6 /* DateDifferenceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1DC5226C04B600E563F6 /* DateDifferenceResult.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +72,8 @@
 		23E7FBC820A1F6B9008523FD /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		23E8B04520A534C600C683D3 /* WeekdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayViewController.swift; sourceTree = "<group>"; };
 		23E8B04720A539A200C683D3 /* WeedayOutputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeedayOutputCell.swift; sourceTree = "<group>"; };
-		23E8B04920A54A4700C683D3 /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
+		F83A8FF124E0306500A05356 /* WeekdayToggleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayToggleCell.swift; sourceTree = "<group>"; };
+		F83A8FF324E0307200A05356 /* WeekdayToggleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekdayToggleCell.xib; sourceTree = "<group>"; };
 		F841D81324DF90B100BCA289 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		F841D81724DF90DB00BCA289 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		F841D81924DF90F600BCA289 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
@@ -78,6 +84,8 @@
 		F848FC9924DD994B0018E692 /* UITraitCollection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITraitCollection+Ext.swift"; sourceTree = "<group>"; };
 		F85DFCC624DFF298005CA914 /* AddSubtractDateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSubtractDateViewController.xib; sourceTree = "<group>"; };
 		F85DFCC924DFF6D3005CA914 /* AddSubtractDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubtractDateViewModel.swift; sourceTree = "<group>"; };
+		F85DFCCC24E0079E005CA914 /* WeekdayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekdayViewController.xib; sourceTree = "<group>"; };
+		F85DFCCE24E011CC005CA914 /* WeekdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayViewModel.swift; sourceTree = "<group>"; };
 		FA0E1DC5226C04B600E563F6 /* DateDifferenceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDifferenceResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,9 +147,11 @@
 		2325F5AE20A56A6200638577 /* WeekdayViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F83A8FF024E0303A00A05356 /* Cell */,
 				23E8B04520A534C600C683D3 /* WeekdayViewController.swift */,
+				F85DFCCC24E0079E005CA914 /* WeekdayViewController.xib */,
 				23E8B04720A539A200C683D3 /* WeedayOutputCell.swift */,
-				23E8B04920A54A4700C683D3 /* Weekday.swift */,
+				F85DFCCE24E011CC005CA914 /* WeekdayViewModel.swift */,
 			);
 			path = WeekdayViewController;
 			sourceTree = "<group>";
@@ -170,6 +180,15 @@
 			children = (
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F83A8FF024E0303A00A05356 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F83A8FF124E0306500A05356 /* WeekdayToggleCell.swift */,
+				F83A8FF324E0307200A05356 /* WeekdayToggleCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		F841D81024DF907C00BCA289 /* Utils */ = {
@@ -301,8 +320,10 @@
 			files = (
 				F85DFCC724DFF298005CA914 /* AddSubtractDateViewController.xib in Resources */,
 				23E7FBB020A1E29A008523FD /* Localizable.strings in Resources */,
+				F83A8FF424E0307200A05356 /* WeekdayToggleCell.xib in Resources */,
 				F841D82324DFAD5400BCA289 /* DateDifferenceViewController.xib in Resources */,
 				230B5430209A058A00F5331E /* LaunchScreen.storyboard in Resources */,
+				F85DFCCD24E0079E005CA914 /* WeekdayViewController.xib in Resources */,
 				23E7FBAD20A1E297008523FD /* InfoPlist.strings in Resources */,
 				230B542D209A058A00F5331E /* Assets.xcassets in Resources */,
 			);
@@ -323,10 +344,13 @@
 				F841D81824DF90DB00BCA289 /* UIColor+Ext.swift in Sources */,
 				F85DFCCA24DFF6D3005CA914 /* AddSubtractDateViewModel.swift in Sources */,
 				F841D81A24DF90F600BCA289 /* Date+Utils.swift in Sources */,
+				F85DFCCF24E011CC005CA914 /* WeekdayViewModel.swift in Sources */,
 				FA0E1DC6226C04B600E563F6 /* DateDifferenceResult.swift in Sources */,
+				F85DFCCB24E00766005CA914 /* WeekdayViewController.swift in Sources */,
 				F841D81C24DF919A00BCA289 /* Weekday.swift in Sources */,
 				F841D82024DFA92400BCA289 /* DateDifferenceViewModel.swift in Sources */,
 				230B5426209A058900F5331E /* AppDelegate.swift in Sources */,
+				F83A8FF224E0306500A05356 /* WeekdayToggleCell.swift in Sources */,
 				232B4B8D209AA88B00ECBD35 /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
