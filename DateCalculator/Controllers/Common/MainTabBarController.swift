@@ -14,7 +14,7 @@ class MainTabBarController: UITabBarController {
         
         let dateDifferenceViewController = DateDifferenceViewController()
         let dateDifferenceNav = UINavigationController(rootViewController: dateDifferenceViewController)
-        dateDifferenceNav.tabBarItem.title = NSLocalizedString("TheDifference", comment: "")
+        dateDifferenceNav.tabBarItem.title = "The Difference"
         dateDifferenceNav.tabBarItem.image = #imageLiteral(resourceName: "difference")
         
 //        let addSubtractDateViewController = AddSubtractDateViewController()

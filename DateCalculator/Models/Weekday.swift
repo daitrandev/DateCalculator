@@ -1,16 +1,10 @@
 //
-//  Constants.swift
+//  Weekday.swift
 //  DateCalculator
 //
-//  Created by Dai Tran on 5/7/18.
-//  Copyright © 2018 Dai Tran. All rights reserved.
+//  Created by DaiTran on 8/9/20.
+//  Copyright © 2020 Dai Tran. All rights reserved.
 //
-
-import Foundation
-
-let isFreeVersion: Bool = Bundle.main.infoDictionary?["isFreeVersion"] as? Bool ?? true
-let isLightThemeKey: String = "isLightTheme"
-
 
 enum Weekday: Int {
     case Sunday = 1
