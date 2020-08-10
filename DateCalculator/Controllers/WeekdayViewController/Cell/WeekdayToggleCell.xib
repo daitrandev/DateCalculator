@@ -17,19 +17,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S25-nz-4Xs">
-                        <rect key="frame" x="110.5" y="10" width="200" height="41"/>
+                        <rect key="frame" x="100.5" y="10" width="200" height="41"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lTg-Og-3g8">
-                                <rect key="frame" x="0.0" y="0.0" width="135" height="41"/>
+                                <rect key="frame" x="0.0" y="0.0" width="141" height="41"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1K-eP-6kW">
-                                        <rect key="frame" x="0.0" y="0.0" width="114.5" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120.5" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDc-uX-YvY">
-                                        <rect key="frame" x="124.5" y="0.0" width="10.5" height="41"/>
+                                        <rect key="frame" x="130.5" y="0.0" width="10.5" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -46,27 +46,25 @@
                                     <constraint firstAttribute="bottom" secondItem="PDc-uX-YvY" secondAttribute="bottom" id="pD2-mN-tjl"/>
                                 </constraints>
                             </view>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AAa-of-dhg">
-                                <rect key="frame" x="151" y="0.0" width="51" height="41"/>
-                                <color key="tintColor" red="0.38823529410000002" green="0.0" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sFG-hE-Bf3">
+                                <rect key="frame" x="151" y="5" width="51" height="31"/>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lTg-Og-3g8" firstAttribute="leading" secondItem="S25-nz-4Xs" secondAttribute="leading" id="0Ju-k1-w9S"/>
+                            <constraint firstItem="sFG-hE-Bf3" firstAttribute="centerY" secondItem="lTg-Og-3g8" secondAttribute="centerY" id="4U0-3Q-wke"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="9R4-o2-sD8"/>
-                            <constraint firstItem="AAa-of-dhg" firstAttribute="top" secondItem="S25-nz-4Xs" secondAttribute="top" id="BZX-EX-rga"/>
-                            <constraint firstAttribute="bottom" secondItem="AAa-of-dhg" secondAttribute="bottom" id="UPV-XS-EbI"/>
+                            <constraint firstItem="sFG-hE-Bf3" firstAttribute="leading" secondItem="lTg-Og-3g8" secondAttribute="trailing" constant="10" id="WmA-0z-cjo"/>
                             <constraint firstAttribute="bottom" secondItem="lTg-Og-3g8" secondAttribute="bottom" id="XAB-gw-qgQ"/>
+                            <constraint firstAttribute="trailing" secondItem="sFG-hE-Bf3" secondAttribute="trailing" id="XFd-IG-ryl"/>
                             <constraint firstItem="lTg-Og-3g8" firstAttribute="top" secondItem="S25-nz-4Xs" secondAttribute="top" id="XTt-di-UtH"/>
-                            <constraint firstAttribute="trailing" secondItem="AAa-of-dhg" secondAttribute="trailing" id="anT-54-beH"/>
-                            <constraint firstItem="AAa-of-dhg" firstAttribute="leading" secondItem="lTg-Og-3g8" secondAttribute="trailing" constant="16" id="zfy-Kc-UUO"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="S25-nz-4Xs" firstAttribute="centerX" secondItem="nuN-fi-2S7" secondAttribute="centerX" id="7lW-0Y-yjc"/>
+                    <constraint firstItem="S25-nz-4Xs" firstAttribute="centerX" secondItem="nuN-fi-2S7" secondAttribute="centerX" constant="-10" id="7lW-0Y-yjc"/>
                     <constraint firstItem="S25-nz-4Xs" firstAttribute="top" secondItem="nuN-fi-2S7" secondAttribute="top" constant="10" id="kiO-31-uOf"/>
                     <constraint firstAttribute="bottom" secondItem="S25-nz-4Xs" secondAttribute="bottom" constant="10" id="o4K-pb-2Ir"/>
                 </constraints>
@@ -74,7 +72,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="countNumberLabel" destination="PDc-uX-YvY" id="7wT-tw-TlH"/>
-                <outlet property="switcher" destination="AAa-of-dhg" id="cuf-4L-1t4"/>
+                <outlet property="switcher" destination="sFG-hE-Bf3" id="axH-Qe-Q8v"/>
                 <outlet property="weekdayLabel" destination="J1K-eP-6kW" id="80H-XK-YmM"/>
             </connections>
             <point key="canvasLocation" x="142.75362318840581" y="134.93303571428569"/>

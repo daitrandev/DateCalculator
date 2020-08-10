@@ -38,6 +38,32 @@ extension Date {
         return false
     }
     
+    func calculateDifference(to date: Date) -> DateDifferenceResult {
+        let calendarComponents = [Calendar.Component.day, Calendar.Component.month, Calendar.Component.year]
+        let calendar = Calendar.current
+        
+        let firstDateComponents: DateComponents = calendar.dateComponents([.day, .month, .year], from: self)
+        let secondDateComponents: DateComponents = calendar.dateComponents([.day, .month, .year], from: date)
+        
+        var dayMonthYear = [("Day", 0), ("Month", 0), ("Year", 0)]
+        
+        for i in 0..<calendarComponents.count {
+            let calendarComponent = calendarComponents[i]
+            let dateComponents = calendar.dateComponents([calendarComponent], from: firstDateComponents, to: secondDateComponents)
+            
+            var componentValue = dateComponents.day ?? dateComponents.month ?? dateComponents.year ?? 0
+            
+            componentValue = componentValue > 0 ? componentValue : componentValue * -1
+            dayMonthYear[i].1 = componentValue
+        }
+        
+        return DateDifferenceResult(
+            days: dayMonthYear[0].1,
+            months: dayMonthYear[1].1,
+            years: dayMonthYear[2].1
+        )
+    }
+    
     func getDateString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .full

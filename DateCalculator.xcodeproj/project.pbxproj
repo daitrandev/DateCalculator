@@ -71,7 +71,6 @@
 		23E7FBC720A1F6B9008523FD /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		23E7FBC820A1F6B9008523FD /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		23E8B04520A534C600C683D3 /* WeekdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayViewController.swift; sourceTree = "<group>"; };
-		23E8B04720A539A200C683D3 /* WeedayOutputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeedayOutputCell.swift; sourceTree = "<group>"; };
 		F83A8FF124E0306500A05356 /* WeekdayToggleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayToggleCell.swift; sourceTree = "<group>"; };
 		F83A8FF324E0307200A05356 /* WeekdayToggleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekdayToggleCell.xib; sourceTree = "<group>"; };
 		F841D81324DF90B100BCA289 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
@@ -150,7 +149,6 @@
 				F83A8FF024E0303A00A05356 /* Cell */,
 				23E8B04520A534C600C683D3 /* WeekdayViewController.swift */,
 				F85DFCCC24E0079E005CA914 /* WeekdayViewController.xib */,
-				23E8B04720A539A200C683D3 /* WeedayOutputCell.swift */,
 				F85DFCCE24E011CC005CA914 /* WeekdayViewModel.swift */,
 			);
 			path = WeekdayViewController;

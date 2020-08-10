@@ -20,11 +20,12 @@ class WeekdayToggleCell: UITableViewCell {
     private var item: WeekdayViewModel.WeekdayToggleCellLayoutItem? {
         didSet {
             guard let item = item else { return }
-            weekdayLabel.text = item.weekday.rawValue + ":"
+            weekdayLabel.text = item.weekday.toString() + ":"
             switcher.isOn = item.isSelected
             countNumberLabel.text = String(item.count)
         }
     }
+    
     weak var delegate: WeekdayToggleCellDelegate?
     
     override func awakeFromNib() {

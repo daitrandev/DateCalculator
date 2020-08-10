@@ -10,9 +10,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeekdayViewController" customModule="DateCalculator" customModuleProvider="target">
             <connections>
+                <outlet property="firstInputDateTextField" destination="J9k-T4-0O4" id="WZ9-Q4-CwS"/>
                 <outlet property="inputContainerView" destination="fte-5h-BoA" id="y4j-1g-k9y"/>
                 <outlet property="outputContainerView" destination="k2b-Rh-xl6" id="U98-IC-jG5"/>
+                <outlet property="secondInputDateTextField" destination="M7Z-Xf-0G7" id="lBb-hp-Jfq"/>
                 <outlet property="tableViewHeightConstraint" destination="p1s-xp-FBf" id="uRj-eh-hVl"/>
+                <outlet property="totalLabel" destination="Gm4-98-MEw" id="848-7Y-Kko"/>
                 <outlet property="view" destination="5kz-HQ-5nm" id="olY-wV-BFy"/>
                 <outlet property="weekdayToggleTableView" destination="jj4-1d-8an" id="bqg-hO-RvY"/>
             </connections>
@@ -105,7 +108,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2b-Rh-xl6">
-                            <rect key="frame" x="10" y="254" width="394" height="420"/>
+                            <rect key="frame" x="10" y="254" width="394" height="437"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outputs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9H-14-5Du">
                                     <rect key="frame" x="20" y="8" width="114.5" height="36"/>
@@ -127,18 +130,26 @@
                                         <constraint firstAttribute="height" constant="327.5" id="p1s-xp-FBf"/>
                                     </constraints>
                                 </tableView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total days: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gm4-98-MEw">
+                                    <rect key="frame" x="148.5" y="408" width="97" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" red="0.38823529410000002" green="0.0" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
+                                <constraint firstItem="Gm4-98-MEw" firstAttribute="top" secondItem="jj4-1d-8an" secondAttribute="bottom" constant="8" id="2zZ-Ab-iEt"/>
                                 <constraint firstAttribute="trailing" secondItem="YNS-DC-sAL" secondAttribute="trailing" constant="16" id="6vN-ZW-DtE"/>
                                 <constraint firstItem="T9H-14-5Du" firstAttribute="top" secondItem="k2b-Rh-xl6" secondAttribute="top" constant="8" id="F2j-bg-zFZ"/>
+                                <constraint firstAttribute="bottom" secondItem="Gm4-98-MEw" secondAttribute="bottom" constant="8" id="NlC-ms-b03"/>
                                 <constraint firstItem="jj4-1d-8an" firstAttribute="top" secondItem="YNS-DC-sAL" secondAttribute="bottom" constant="20" id="P6h-Jz-szQ"/>
                                 <constraint firstItem="YNS-DC-sAL" firstAttribute="top" secondItem="T9H-14-5Du" secondAttribute="bottom" constant="8" id="PaJ-bx-q0S"/>
                                 <constraint firstItem="T9H-14-5Du" firstAttribute="leading" secondItem="k2b-Rh-xl6" secondAttribute="leading" constant="20" id="PpV-8f-34U"/>
-                                <constraint firstAttribute="bottom" secondItem="jj4-1d-8an" secondAttribute="bottom" constant="20" id="THY-CC-qWj"/>
                                 <constraint firstItem="YNS-DC-sAL" firstAttribute="leading" secondItem="k2b-Rh-xl6" secondAttribute="leading" constant="16" id="ci0-Vd-Nve"/>
                                 <constraint firstAttribute="trailing" secondItem="jj4-1d-8an" secondAttribute="trailing" constant="10" id="pow-mn-1Wl"/>
                                 <constraint firstItem="jj4-1d-8an" firstAttribute="leading" secondItem="k2b-Rh-xl6" secondAttribute="leading" constant="10" id="tE3-Ja-c3A"/>
+                                <constraint firstItem="Gm4-98-MEw" firstAttribute="centerX" secondItem="k2b-Rh-xl6" secondAttribute="centerX" id="wvd-hL-9hq"/>
                             </constraints>
                         </view>
                     </subviews>
