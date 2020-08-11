@@ -18,8 +18,11 @@ class DateDifferenceViewController: UIViewController {
     @IBOutlet weak var dayDifferenceLabel: UILabel!
     @IBOutlet weak var monthDifferenceLabel: UILabel!
     @IBOutlet weak var yearDifferenceLabel: UILabel!
+    @IBOutlet weak var stackView: UIStackView!
     
     private var currentEditingTextField: UITextField?
+    private var bannerView: GADBannerView?
+    private var interstitial: GADInterstitial?
     private let viewModel: DateDifferenceViewModelType
     
     private lazy var datePicker: UIDatePicker = {
@@ -55,6 +58,9 @@ class DateDifferenceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bannerView = createAndLoadBannerAds()
+        interstitial = createAndLoadInterstitial()
         
         viewModel.delegate = self
         
@@ -124,6 +130,55 @@ extension DateDifferenceViewController: DateDifferenceViewModelDelegate {
         dayDifferenceLabel.text = String(days)
         monthDifferenceLabel.text = String(months)
         yearDifferenceLabel.text = String(years)
+    }
+}
+
+extension DateDifferenceViewController: GADBannerViewDelegate {
+    private func createAndLoadBannerAds() -> GADBannerView {
+        let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        let adUnitId = bannerAdsUnitID
+        bannerView.adUnitID = adUnitId
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
+        return bannerView
+    }
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("Banner loaded successfully")
+        
+        // Reposition the banner ad to create a slide down effect
+        let translateTransform = CGAffineTransform(translationX: 0, y: -bannerView.bounds.size.height)
+        bannerView.transform = translateTransform
+        
+        stackView.insertArrangedSubview(bannerView, at: 0)
+//        UIView.animate(withDuration: 0.5) {
+//            self.tableView.tableHeaderView?.frame = bannerView.frame
+//            bannerView.transform = CGAffineTransform.identity
+//            self.tableView.tableHeaderView = bannerView
+//        }
+    }
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        print("Fail to receive ads")
+        print(error)
+    }
+}
+
+extension DateDifferenceViewController: GADInterstitialDelegate {
+    private func createAndLoadInterstitial() -> GADInterstitial? {
+        let interstitial = GADInterstitial(adUnitID: interstialAdsUnitID)
+        
+        let request = GADRequest()
+        // Remove the following line before you upload the app
+        interstitial.load(request)
+        interstitial.delegate = self
+        
+        return interstitial
+    }
+    
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        ad.present(fromRootViewController: self)
     }
 }
 
