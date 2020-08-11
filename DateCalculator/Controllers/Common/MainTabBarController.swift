@@ -26,12 +26,12 @@ class MainTabBarController: UITabBarController {
         let weekdayNav = UINavigationController(rootViewController: weekdayViewController)
         weekdayNav.tabBarItem.title = "Weekday"
         weekdayNav.tabBarItem.image = #imageLiteral(resourceName: "weekday")
-//
-//        let leapYearViewController = LeapYearViewController()
-//        let leapYearNav = UINavigationController(rootViewController: leapYearViewController)
-//        leapYearNav.tabBarItem.title = NSLocalizedString("LeapYear", comment: "")
-//        leapYearNav.tabBarItem.image = #imageLiteral(resourceName: "leapYear")
 
-        viewControllers = [dateDifferenceNav, addSubtractDateNav, weekdayNav]//, leapYearNav]
+        let leapYearViewController = LeapYearViewController()
+        let leapYearNav = UINavigationController(rootViewController: leapYearViewController)
+        leapYearNav.tabBarItem.title = "Leap Year"
+        leapYearNav.tabBarItem.image = #imageLiteral(resourceName: "leapYear")
+
+        viewControllers = [dateDifferenceNav, addSubtractDateNav, weekdayNav, leapYearNav]
     }
 }

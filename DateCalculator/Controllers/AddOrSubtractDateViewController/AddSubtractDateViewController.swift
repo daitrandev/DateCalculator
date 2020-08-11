@@ -76,7 +76,6 @@ class AddSubtractDateViewController: UIViewController {
         inputDateTextField.inputAccessoryView = toolbar
         inputDateTextField.layer.borderWidth = 2
         inputDateTextField.layer.borderColor = UIColor.clear.cgColor
-        inputDateTextField.delegate = self
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "refresh"),
@@ -130,10 +129,6 @@ extension AddSubtractDateViewController: AddSubtractDateViewModelDelegate {
             animated: true
         )
     }
-}
-
-extension AddSubtractDateViewController: UITextFieldDelegate {
-    
 }
 
 extension AddSubtractDateViewController: UIPickerViewDataSource {

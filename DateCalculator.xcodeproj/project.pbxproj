@@ -14,6 +14,9 @@
 		232B4B8D209AA88B00ECBD35 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232B4B8C209AA88B00ECBD35 /* MainTabBarController.swift */; };
 		23E7FBAD20A1E297008523FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23E7FBAF20A1E297008523FD /* InfoPlist.strings */; };
 		23E7FBB020A1E29A008523FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23E7FBB220A1E29A008523FD /* Localizable.strings */; };
+		D7CBF2AD24E2AB5200CF0938 /* LeapYearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D822D420AABCAB00445485 /* LeapYearViewController.swift */; };
+		D7CBF2AF24E2AB6800CF0938 /* LeapYearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7CBF2AE24E2AB6800CF0938 /* LeapYearViewController.xib */; };
+		D7CBF2B124E2ADB000CF0938 /* LeapYearViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CBF2B024E2ADB000CF0938 /* LeapYearViewModel.swift */; };
 		F83A8FF224E0306500A05356 /* WeekdayToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83A8FF124E0306500A05356 /* WeekdayToggleCell.swift */; };
 		F83A8FF424E0307200A05356 /* WeekdayToggleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F83A8FF324E0307200A05356 /* WeekdayToggleCell.xib */; };
 		F841D81424DF90B100BCA289 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F841D81324DF90B100BCA289 /* UIView+Ext.swift */; };
@@ -45,7 +48,6 @@
 		2383139320A27EF20026C441 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		2383139420A27EF20026C441 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		23D822D420AABCAB00445485 /* LeapYearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeapYearViewController.swift; sourceTree = "<group>"; };
-		23D822D620AABEB800445485 /* LeapYearOutputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeapYearOutputCell.swift; sourceTree = "<group>"; };
 		23E7FBAE20A1E297008523FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		23E7FBB120A1E29A008523FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		23E7FBB320A1E2AB008523FD /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -71,6 +73,8 @@
 		23E7FBC720A1F6B9008523FD /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		23E7FBC820A1F6B9008523FD /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		23E8B04520A534C600C683D3 /* WeekdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayViewController.swift; sourceTree = "<group>"; };
+		D7CBF2AE24E2AB6800CF0938 /* LeapYearViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeapYearViewController.xib; sourceTree = "<group>"; };
+		D7CBF2B024E2ADB000CF0938 /* LeapYearViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeapYearViewModel.swift; sourceTree = "<group>"; };
 		F83A8FF124E0306500A05356 /* WeekdayToggleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayToggleCell.swift; sourceTree = "<group>"; };
 		F83A8FF324E0307200A05356 /* WeekdayToggleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekdayToggleCell.xib; sourceTree = "<group>"; };
 		F841D81324DF90B100BCA289 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
@@ -158,7 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				23D822D420AABCAB00445485 /* LeapYearViewController.swift */,
-				23D822D620AABEB800445485 /* LeapYearOutputCell.swift */,
+				D7CBF2AE24E2AB6800CF0938 /* LeapYearViewController.xib */,
+				D7CBF2B024E2ADB000CF0938 /* LeapYearViewModel.swift */,
 			);
 			path = LeapYearViewController;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				23E7FBB020A1E29A008523FD /* Localizable.strings in Resources */,
 				F83A8FF424E0307200A05356 /* WeekdayToggleCell.xib in Resources */,
 				F841D82324DFAD5400BCA289 /* DateDifferenceViewController.xib in Resources */,
+				D7CBF2AF24E2AB6800CF0938 /* LeapYearViewController.xib in Resources */,
 				230B5430209A058A00F5331E /* LaunchScreen.storyboard in Resources */,
 				F85DFCCD24E0079E005CA914 /* WeekdayViewController.xib in Resources */,
 				23E7FBAD20A1E297008523FD /* InfoPlist.strings in Resources */,
@@ -347,7 +353,9 @@
 				F85DFCCB24E00766005CA914 /* WeekdayViewController.swift in Sources */,
 				F841D81C24DF919A00BCA289 /* Weekday.swift in Sources */,
 				F841D82024DFA92400BCA289 /* DateDifferenceViewModel.swift in Sources */,
+				D7CBF2AD24E2AB5200CF0938 /* LeapYearViewController.swift in Sources */,
 				230B5426209A058900F5331E /* AppDelegate.swift in Sources */,
+				D7CBF2B124E2ADB000CF0938 /* LeapYearViewModel.swift in Sources */,
 				F83A8FF224E0306500A05356 /* WeekdayToggleCell.swift in Sources */,
 				232B4B8D209AA88B00ECBD35 /* MainTabBarController.swift in Sources */,
 			);

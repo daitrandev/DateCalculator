@@ -8,84 +8,95 @@
 
 import UIKit
 
-class LeapYearViewController: DateDifferenceViewController {
+class LeapYearViewController: UIViewController {
+    @IBOutlet weak var inputDateTextField: UITextField!
+    @IBOutlet weak var outputLabel: UILabel!
+    @IBOutlet weak var inputContainerView: UIView!
+    @IBOutlet weak var outputContainerView: UIView!
     
-    let leapYearOutputCellId = "leapYearOutputCellId"
-    var isLeapYear = false
-    var checkingYear: Int = 2018
+    private var viewModel: LeapYearViewModelType
+    
+    private lazy var datePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.minimumDate = Calendar.current.date(byAdding: Calendar.Component.year, value: -1000, to: Date())
+        picker.maximumDate = Calendar.current.date(byAdding: Calendar.Component.year, value: 1000, to: Date())
+        picker.datePickerMode = .date
+        picker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
+        return picker
+    }()
+    
+    private lazy var toolbar: UIToolbar = {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        toolBar.isTranslucent = true
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDone))
+        toolBar.setItems([flexibleSpace, doneBarButton], animated: true)
+        return toolBar
+    }()
+    
+    init() {
+        viewModel = LeapYearViewModel()
+        super.init(
+            nibName: String(describing: LeapYearViewController.self),
+            bundle: .main
+        )
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = NSLocalizedString("CheckLeapYear", comment: "")
-        tableView.register(LeapYearOutputCell.self, forCellReuseIdentifier: leapYearOutputCellId)
         
-        let currentDate = Date()
-        guard let currentYear = Calendar.current.dateComponents([.year], from: currentDate).year else { return }
-        isLeapYear = checkLeapYear(year: currentYear)
-        checkingYear = currentYear
-    }
-    
-    override func setupAds() {
-        // Does nothing
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if isFreeVersion {
-            presentAlert(title: NSLocalizedString("Appname", comment: ""), message: NSLocalizedString("UpgradeMessage", comment: ""), isUpgradeMessage: true)
+        viewModel.delegate = self
+        viewModel.inputDate = Date()
+        
+        [inputContainerView, outputContainerView].forEach {
+            $0?.backgroundColor = UIColor.purpleLilac
+            $0?.makeRounded(cornerRadius: 10)
         }
+        
+        inputDateTextField.inputView = datePicker
+        inputDateTextField.inputAccessoryView = toolbar
+        inputDateTextField.layer.borderWidth = 2
+        inputDateTextField.layer.borderColor = UIColor.clear.cgColor
+        
+        navigationItem.title = "Check Leap Year"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(named: "refresh"),
+            style: .plain,
+            target: self,
+            action: #selector(didTapRefresh)
+        )
+        navigationController?.navigationBar.tintColor = UIColor.purpleLilac
+        tabBarController?.tabBar.tintColor = UIColor.purpleLilac
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+    @objc private func didTapRefresh() {
+        viewModel.inputDate = Date()
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: inputCellId, for: indexPath) as! DateDifferenceInputCell
-            cell.loadTheme(isLightTheme: isLightTheme)
-            cell.tag = indexPath.row
-            cell.disableUserInteraction(isFreeVersion: isFreeVersion)
-            cell.delegate = self
-            return cell
+    @objc private func didTapDone() {
+        inputDateTextField.resignFirstResponder()
+    }
+    
+    @objc private func datePickerValueChanged() {
+        viewModel.inputDate = datePicker.date
+    }
+}
+
+extension LeapYearViewController: LeapYearViewModelDelegate {
+    func render(inputDate: Date) {
+        inputDateTextField.text = inputDate.getDateString()
+    }
+    
+    func renderOutput(year: Int, isLeapYear: Bool) {
+        if isLeapYear {
+            outputLabel.text = "\(year) is a leap year."
+            return
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: leapYearOutputCellId, for: indexPath) as! LeapYearOutputCell
-        cell.loadTheme(isLightTheme: isLightTheme)
-        cell.checkingYear = checkingYear
-        cell.isLeapYear = isLeapYear
-        return cell
-    }
-    
-    override func updateTableView() {
-        let indexPath = IndexPath(row: 0, section: 1)
-        let cell = tableView.cellForRow(at: indexPath) as? LeapYearOutputCell
-        cell?.checkingYear = checkingYear
-        cell?.isLeapYear = isLeapYear
-    }
-    
-    override func updateShowingInputDate(containingCell tag: Int, updated date: Date) {
-        guard let currentYear = Calendar.current.dateComponents([.year], from: date).year else { return }
-        checkingYear = currentYear
-    }
-    
-    override func calculateAndUpdateView() {
-        isLeapYear = checkLeapYear(year: checkingYear)
-        updateTableView()
-    }
-    
-    func getCurrentYear() -> Int {
-        let currentDate = Date()
-        guard let currentYear = Calendar.current.dateComponents([.year], from: currentDate).year else { return 0 }
-        return currentYear
-    }
-    
-    func checkLeapYear(year: Int) -> Bool {
-        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
-    }
-    
-    override func onRefreshAction() {
-        resetDate()
-        checkingYear = getCurrentYear()
-        isLeapYear = checkLeapYear(year: checkingYear)
-        updateTableView()
+        outputLabel.text = "\(year) isn't a leap year."
     }
 }
