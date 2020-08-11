@@ -7,4 +7,6 @@ target 'DateCalculator' do
 
   # Pods for DateCalculator
   pod 'Google-Mobile-Ads-SDK'
+  pod 'IQKeyboardManagerSwift'
+  pod 'MBProgressHUD'
 end

@@ -14,6 +14,7 @@ protocol LeapYearViewModelDelegate: class {
 }
 
 protocol LeapYearViewModelType: class {
+    var isPurchased: Bool { get }
     var inputDate: Date { get set }
     var delegate: LeapYearViewModelDelegate? { get set }
     func clear()
@@ -33,6 +34,10 @@ class LeapYearViewModel: LeapYearViewModelType {
             let isLeapYear = checkLeapYear(for: inputYear)
             delegate?.renderOutput(year: inputYear, isLeapYear: isLeapYear)
         }
+    }
+    
+    var isPurchased: Bool {
+        GlobalKeychain.getBool(for: KeychainKey.isPurchased) ?? false
     }
     
     weak var delegate: LeapYearViewModelDelegate?

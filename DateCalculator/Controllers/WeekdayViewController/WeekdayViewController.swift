@@ -97,6 +97,14 @@ class WeekdayViewController: UIViewController {
         viewModel.firstInputDate = Date()
         viewModel.secondInputDate = Date()
         
+        if !viewModel.isPurchased {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(
+                image: UIImage(named: "unlock"),
+                style: .plain,
+                target: self,
+                action: #selector(didTapUnlock)
+            )
+        }
         navigationController?.navigationBar.titleTextAttributes = [
             .font: UIFont(name: "Roboto-Medium", size: 14)!
         ]
@@ -130,6 +138,29 @@ class WeekdayViewController: UIViewController {
     
     @objc private func didTapRefresh() {
         viewModel.clear()
+    }
+    
+    @objc private func didTapUnlock() {
+        tabBarController?.tabBar.layer.zPosition = -1
+        tabBarController?.tabBar.isUserInteractionEnabled = false
+        
+        let vc = PurchasingPopupViewController()
+        vc.delegate = self
+        present(vc, animated: true)
+    }
+}
+
+extension WeekdayViewController: PurchasingPopupViewControllerDelegate {
+    func removeAds() {
+        showTabbar()
+        
+        bannerView?.removeFromSuperview()
+        navigationItem.leftBarButtonItem = nil
+    }
+    
+    func showTabbar() {
+        tabBarController?.tabBar.layer.zPosition = 0
+        tabBarController?.tabBar.isUserInteractionEnabled = true
     }
 }
 

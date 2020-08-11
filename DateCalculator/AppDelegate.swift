@@ -8,6 +8,8 @@
 
 import UIKit
 import GoogleMobileAds
+import SwiftyStoreKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,13 +18,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         UIFont.loadCustomFonts()
+        IQKeyboardManager.shared.enable = true
         
         window = UIWindow()
         window?.makeKeyAndVisible()
         window?.rootViewController = MainTabBarController()
         
+        if UserDefaults.standard.object(forKey: "isFirstRun") == nil {
+            GlobalKeychain.clear(for: KeychainKey.isPurchased)
+            
+            UserDefaults.standard.set(true, forKey: "isFirstRun")
+            UserDefaults.standard.synchronize()
+        }
+        
+        if let isPurchased = GlobalKeychain.getBool(for: KeychainKey.isPurchased), isPurchased {
+            return true
+        }
+        
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
+        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+            for purchase in purchases {
+                switch purchase.transaction.transactionState {
+                case .purchased, .restored:
+                    if purchase.needsFinishTransaction {
+                        // Deliver content from server, then:
+                        SwiftyStoreKit.finishTransaction(purchase.transaction)
+                    }
+                    // Unlock content
+                case .failed, .purchasing, .deferred:
+                    break // do nothing
+                }
+            }
+        }
         
         return true
     }

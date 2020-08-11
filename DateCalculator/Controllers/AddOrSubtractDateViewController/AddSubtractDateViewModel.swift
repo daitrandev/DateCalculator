@@ -15,6 +15,7 @@ protocol AddSubtractDateViewModelDelegate: class {
 }
 
 protocol AddSubtractDateViewModelType: class {
+    var isPurchased: Bool { get }
     var inputDate: Date { get set }
     var inputDuration: AddSubtractDateViewModel.Duration { get set }
     var maximumDurationNumber: Int { get }
@@ -40,6 +41,10 @@ class AddSubtractDateViewModel: AddSubtractDateViewModelType {
             let outputDate = calculateDateFromDuration(inputDate: inputDate, duration: inputDuration) ?? Date()
             delegate?.render(outputDate: outputDate)
         }
+    }
+    
+    var isPurchased: Bool {
+        GlobalKeychain.getBool(for: KeychainKey.isPurchased) ?? false
     }
     
     var maximumDurationNumber: Int = 1000

@@ -16,6 +16,7 @@ protocol WeekdayViewModelDelegate: class {
 }
 
 protocol WeekdayViewModelType: class {
+    var isPurchased: Bool { get }
     var firstInputDate: Date { get set }
     var secondInputDate: Date { get set }
     var totalDays: Int { get }
@@ -60,6 +61,10 @@ class WeekdayViewModel: WeekdayViewModelType {
             delegate?.renderTotalDays()
             delegate?.reloadWeedayTableView()
         }
+    }
+    
+    var isPurchased: Bool {
+        GlobalKeychain.getBool(for: KeychainKey.isPurchased) ?? false
     }
     
     weak var delegate: WeekdayViewModelDelegate?

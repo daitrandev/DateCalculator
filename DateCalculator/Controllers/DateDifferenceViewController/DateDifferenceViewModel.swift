@@ -17,7 +17,8 @@ protocol DateDifferenceViewModelDelegate: class {
 protocol DateDifferenceViewModelType: class {
     var firstInputDate: Date { get set }
     var secondInputDate: Date { get set }
-    var delegate: DateDifferenceViewModelDelegate? { get set}
+    var isPurchased: Bool { get }
+    var delegate: DateDifferenceViewModelDelegate? { get set }
     func clear()
 }
 
@@ -45,6 +46,10 @@ final class DateDifferenceViewModel: DateDifferenceViewModelType {
                 years: dateDifferenceResult.years
             )
         }
+    }
+    
+    var isPurchased: Bool {
+        GlobalKeychain.getBool(for: KeychainKey.isPurchased) ?? false
     }
     
     weak var delegate: DateDifferenceViewModelDelegate?
