@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class WeekdayViewController: UIViewController {
     @IBOutlet weak var firstInputDateTextField: UITextField!
@@ -16,8 +17,10 @@ class WeekdayViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var weekdayToggleTableView: UITableView!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var stackView: UIStackView!
     
     private let cellId = "cellId"
+    private var bannerView: GADBannerView?
     private var contentSizeObserver: NSKeyValueObservation?
     private var currentEditingTextField: UITextField?
     private var viewModel: WeekdayViewModelType
@@ -61,6 +64,8 @@ class WeekdayViewController: UIViewController {
         super.viewDidLoad()
         
         viewModel.delegate = self
+        
+        bannerView = createAndLoadBannerAds()
         
         weekdayToggleTableView.register(
             UINib(
@@ -125,6 +130,29 @@ class WeekdayViewController: UIViewController {
     
     @objc private func didTapRefresh() {
         viewModel.clear()
+    }
+}
+
+extension WeekdayViewController: GADBannerViewDelegate {
+    private func createAndLoadBannerAds() -> GADBannerView {
+        let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        let adUnitId = bannerAdsUnitID
+        bannerView.adUnitID = adUnitId
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
+        return bannerView
+    }
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("Banner loaded successfully")
+        
+        stackView.insertArrangedSubview(bannerView, at: 0)
+    }
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        print("Fail to receive ads")
+        print(error)
     }
 }
 

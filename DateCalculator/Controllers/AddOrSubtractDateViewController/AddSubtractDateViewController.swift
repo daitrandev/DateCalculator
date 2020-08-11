@@ -17,7 +17,9 @@ class AddSubtractDateViewController: UIViewController {
     @IBOutlet weak var monthPickerView: UIPickerView!
     @IBOutlet weak var yearPickerView: UIPickerView!
     @IBOutlet weak var outputDateLabel: UILabel!
+    @IBOutlet weak var stackView: UIStackView!
     
+    private var bannerView: GADBannerView?
     private var viewModel: AddSubtractDateViewModelType
     
     private lazy var datePicker: UIDatePicker = {
@@ -53,6 +55,8 @@ class AddSubtractDateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bannerView = createAndLoadBannerAds()
         
         viewModel.delegate = self
         
@@ -101,6 +105,28 @@ class AddSubtractDateViewController: UIViewController {
     
     @objc private func datePickerValueChanged() {
         viewModel.inputDate = datePicker.date
+    }
+}
+
+extension AddSubtractDateViewController: GADBannerViewDelegate {
+    private func createAndLoadBannerAds() -> GADBannerView {
+        let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        let adUnitId = bannerAdsUnitID
+        bannerView.adUnitID = adUnitId
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
+        return bannerView
+    }
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("Banner loaded successfully")
+        self.stackView.insertArrangedSubview(bannerView, at: 0)
+    }
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        print("Fail to receive ads")
+        print(error)
     }
 }
 

@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class LeapYearViewController: UIViewController {
     @IBOutlet weak var inputDateTextField: UITextField!
     @IBOutlet weak var outputLabel: UILabel!
     @IBOutlet weak var inputContainerView: UIView!
     @IBOutlet weak var outputContainerView: UIView!
+    @IBOutlet weak var stackView: UIStackView!
     
+    private var bannerView: GADBannerView?
     private var viewModel: LeapYearViewModelType
     
     private lazy var datePicker: UIDatePicker = {
@@ -53,6 +56,8 @@ class LeapYearViewController: UIViewController {
         viewModel.delegate = self
         viewModel.inputDate = Date()
         
+        bannerView = createAndLoadBannerAds()
+        
         [inputContainerView, outputContainerView].forEach {
             $0?.backgroundColor = UIColor.purpleLilac
             $0?.makeRounded(cornerRadius: 10)
@@ -87,6 +92,29 @@ class LeapYearViewController: UIViewController {
     
     @objc private func datePickerValueChanged() {
         viewModel.inputDate = datePicker.date
+    }
+}
+
+extension LeapYearViewController: GADBannerViewDelegate {
+    private func createAndLoadBannerAds() -> GADBannerView {
+        let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        let adUnitId = bannerAdsUnitID
+        bannerView.adUnitID = adUnitId
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
+        return bannerView
+    }
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("Banner loaded successfully")
+        
+        stackView.insertArrangedSubview(bannerView, at: 0)
+    }
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        print("Fail to receive ads")
+        print(error)
     }
 }
 
