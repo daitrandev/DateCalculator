@@ -63,6 +63,9 @@ class LeapYearViewController: UIViewController {
         inputDateTextField.layer.borderWidth = 2
         inputDateTextField.layer.borderColor = UIColor.clear.cgColor
         
+        navigationController?.navigationBar.titleTextAttributes = [
+            .font: UIFont(name: "Roboto-Medium", size: 14)!
+        ]
         navigationItem.title = "Check Leap Year"
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "refresh"),

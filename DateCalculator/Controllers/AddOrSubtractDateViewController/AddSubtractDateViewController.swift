@@ -77,6 +77,9 @@ class AddSubtractDateViewController: UIViewController {
         inputDateTextField.layer.borderWidth = 2
         inputDateTextField.layer.borderColor = UIColor.clear.cgColor
         
+        navigationController?.navigationBar.titleTextAttributes = [
+            .font: UIFont(name: "Roboto-Medium", size: 14)!
+        ]
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "refresh"),
             style: .plain,

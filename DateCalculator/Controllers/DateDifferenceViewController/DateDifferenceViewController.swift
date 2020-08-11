@@ -74,6 +74,9 @@ class DateDifferenceViewController: UIViewController {
         firstInputDateTextField.text = viewModel.firstInputDate.getDateString()
         secondInputDateTextField.text = viewModel.secondInputDate.getDateString()
         
+        navigationController?.navigationBar.titleTextAttributes = [
+            .font: UIFont(name: "Roboto-Medium", size: 14)!
+        ]
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "refresh"),
             style: .plain,

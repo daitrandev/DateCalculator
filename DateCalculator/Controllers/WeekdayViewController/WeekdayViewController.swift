@@ -92,6 +92,9 @@ class WeekdayViewController: UIViewController {
         viewModel.firstInputDate = Date()
         viewModel.secondInputDate = Date()
         
+        navigationController?.navigationBar.titleTextAttributes = [
+            .font: UIFont(name: "Roboto-Medium", size: 14)!
+        ]
         navigationItem.title = "Weekdays Between Two Dates"
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "refresh"),
