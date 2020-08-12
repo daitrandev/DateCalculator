@@ -112,17 +112,14 @@ class LeapYearViewController: UIViewController {
     }
     
     @objc private func didTapUnlock() {
-        tabBarController?.tabBar.layer.zPosition = -1
-        tabBarController?.tabBar.isUserInteractionEnabled = false
-        
         let vc = PurchasingPopupViewController()
         vc.delegate = self
-        present(vc, animated: true)
+        tabBarController?.present(vc, animated: true)
     }
 }
 
 extension LeapYearViewController: PurchasingPopupViewControllerDelegate {
-    func removeAds() {        
+    func removeAds() {       
         bannerView?.removeFromSuperview()
         navigationItem.leftBarButtonItem = nil
     }

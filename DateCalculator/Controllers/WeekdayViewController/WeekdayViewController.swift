@@ -73,6 +73,10 @@ class WeekdayViewController: UIViewController {
         viewModel.delegate = self
         
         if !viewModel.isPurchased {
+            firstInputDateTextField.isEnabled = false
+            secondInputDateTextField.isEnabled = false
+            firstInputDateTextField.backgroundColor = .gray
+            secondInputDateTextField.backgroundColor = .gray
             bannerView = createAndLoadBannerAds()
         }
         
@@ -150,17 +154,19 @@ class WeekdayViewController: UIViewController {
     }
     
     @objc private func didTapUnlock() {
-        tabBarController?.tabBar.layer.zPosition = -1
-        tabBarController?.tabBar.isUserInteractionEnabled = false
-        
         let vc = PurchasingPopupViewController()
         vc.delegate = self
-        present(vc, animated: true)
+        tabBarController?.present(vc, animated: true)
     }
 }
 
 extension WeekdayViewController: PurchasingPopupViewControllerDelegate {
-    func removeAds() {        
+    func removeAds() {
+        firstInputDateTextField.isEnabled = true
+        secondInputDateTextField.isEnabled = true
+        firstInputDateTextField.backgroundColor = .white
+        secondInputDateTextField.backgroundColor = .white
+        
         bannerView?.removeFromSuperview()
         navigationItem.leftBarButtonItem = nil
     }

@@ -65,6 +65,8 @@ class AddSubtractDateViewController: UIViewController {
         
         if !viewModel.isPurchased {
             bannerView = createAndLoadBannerAds()
+            inputDateTextField.isEnabled = false
+            inputDateTextField.backgroundColor = .gray
         }
         
         viewModel.delegate = self
@@ -125,17 +127,17 @@ class AddSubtractDateViewController: UIViewController {
     }
     
     @objc private func didTapUnlock() {
-        tabBarController?.tabBar.layer.zPosition = -1
-        tabBarController?.tabBar.isUserInteractionEnabled = false
-        
         let vc = PurchasingPopupViewController()
         vc.delegate = self
-        present(vc, animated: true)
+        tabBarController?.present(vc, animated: true)
     }
 }
 
 extension AddSubtractDateViewController: PurchasingPopupViewControllerDelegate {
-    func removeAds() {        
+    func removeAds() {
+        inputDateTextField.isEnabled = true
+        inputDateTextField.backgroundColor = .white
+        
         bannerView?.removeFromSuperview()
         navigationItem.leftBarButtonItem = nil
     }
