@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="61" id="f0J-am-PYR" customClass="WeekdayToggleCell" customModule="DateCalculator" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="421" height="61"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f0J-am-PYR" id="nuN-fi-2S7">
+                <rect key="frame" x="0.0" y="0.0" width="421" height="61"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S25-nz-4Xs">
+                        <rect key="frame" x="100.5" y="10" width="200" height="41"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lTg-Og-3g8">
+                                <rect key="frame" x="0.0" y="0.0" width="141" height="41"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1K-eP-6kW">
+                                        <rect key="frame" x="0.0" y="0.0" width="121" height="41"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDc-uX-YvY">
+                                        <rect key="frame" x="131" y="0.0" width="10" height="41"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="J1K-eP-6kW" firstAttribute="top" secondItem="lTg-Og-3g8" secondAttribute="top" id="9Tj-4O-GTI"/>
+                                    <constraint firstItem="PDc-uX-YvY" firstAttribute="top" secondItem="lTg-Og-3g8" secondAttribute="top" id="HoT-u9-48W"/>
+                                    <constraint firstAttribute="bottom" secondItem="J1K-eP-6kW" secondAttribute="bottom" id="KDe-tT-5Ek"/>
+                                    <constraint firstItem="J1K-eP-6kW" firstAttribute="leading" secondItem="lTg-Og-3g8" secondAttribute="leading" id="SeU-vm-IOx"/>
+                                    <constraint firstItem="PDc-uX-YvY" firstAttribute="leading" secondItem="J1K-eP-6kW" secondAttribute="trailing" constant="10" id="cSb-09-TVg"/>
+                                    <constraint firstAttribute="trailing" secondItem="PDc-uX-YvY" secondAttribute="trailing" id="orQ-u9-KYp"/>
+                                    <constraint firstAttribute="bottom" secondItem="PDc-uX-YvY" secondAttribute="bottom" id="pD2-mN-tjl"/>
+                                </constraints>
+                            </view>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sFG-hE-Bf3">
+                                <rect key="frame" x="151" y="5" width="51" height="31"/>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lTg-Og-3g8" firstAttribute="leading" secondItem="S25-nz-4Xs" secondAttribute="leading" id="0Ju-k1-w9S"/>
+                            <constraint firstItem="sFG-hE-Bf3" firstAttribute="centerY" secondItem="lTg-Og-3g8" secondAttribute="centerY" id="4U0-3Q-wke"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="9R4-o2-sD8"/>
+                            <constraint firstItem="sFG-hE-Bf3" firstAttribute="leading" secondItem="lTg-Og-3g8" secondAttribute="trailing" constant="10" id="WmA-0z-cjo"/>
+                            <constraint firstAttribute="bottom" secondItem="lTg-Og-3g8" secondAttribute="bottom" id="XAB-gw-qgQ"/>
+                            <constraint firstAttribute="trailing" secondItem="sFG-hE-Bf3" secondAttribute="trailing" id="XFd-IG-ryl"/>
+                            <constraint firstItem="lTg-Og-3g8" firstAttribute="top" secondItem="S25-nz-4Xs" secondAttribute="top" id="XTt-di-UtH"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="S25-nz-4Xs" firstAttribute="centerX" secondItem="nuN-fi-2S7" secondAttribute="centerX" constant="-10" id="7lW-0Y-yjc"/>
+                    <constraint firstItem="S25-nz-4Xs" firstAttribute="top" secondItem="nuN-fi-2S7" secondAttribute="top" constant="10" id="kiO-31-uOf"/>
+                    <constraint firstAttribute="bottom" secondItem="S25-nz-4Xs" secondAttribute="bottom" constant="10" id="o4K-pb-2Ir"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="countNumberLabel" destination="PDc-uX-YvY" id="7wT-tw-TlH"/>
+                <outlet property="switcher" destination="sFG-hE-Bf3" id="axH-Qe-Q8v"/>
+                <outlet property="weekdayLabel" destination="J1K-eP-6kW" id="80H-XK-YmM"/>
+            </connections>
+            <point key="canvasLocation" x="142.75362318840581" y="134.93303571428569"/>
+        </tableViewCell>
+    </objects>
+</document>
