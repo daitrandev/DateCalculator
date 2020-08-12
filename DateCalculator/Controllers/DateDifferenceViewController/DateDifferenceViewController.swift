@@ -56,11 +56,20 @@ class DateDifferenceViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if viewModel.isPurchased {
+            removeAds()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bannerView = createAndLoadBannerAds()
-        interstitial = createAndLoadInterstitial()
+        if !viewModel.isPurchased {
+            bannerView = createAndLoadBannerAds()
+            interstitial = createAndLoadInterstitial()
+        }
         
         viewModel.delegate = self
         
@@ -125,26 +134,16 @@ class DateDifferenceViewController: UIViewController {
     }
     
     @objc private func didTapUnlock() {
-        tabBarController?.tabBar.layer.zPosition = -1
-        tabBarController?.tabBar.isUserInteractionEnabled = false
-        
         let vc = PurchasingPopupViewController()
         vc.delegate = self
-        present(vc, animated: true)
+        tabBarController?.present(vc, animated: true)
     }
 }
 
 extension DateDifferenceViewController: PurchasingPopupViewControllerDelegate {
-    func removeAds() {
-        showTabbar()
-        
+    func removeAds() {        
         bannerView?.removeFromSuperview()
         navigationItem.leftBarButtonItem = nil
-    }
-    
-    func showTabbar() {
-        tabBarController?.tabBar.layer.zPosition = 0
-        tabBarController?.tabBar.isUserInteractionEnabled = true
     }
 }
 

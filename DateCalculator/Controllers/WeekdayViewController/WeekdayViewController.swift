@@ -60,12 +60,21 @@ class WeekdayViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if viewModel.isPurchased {
+            removeAds()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.delegate = self
         
-        bannerView = createAndLoadBannerAds()
+        if !viewModel.isPurchased {
+            bannerView = createAndLoadBannerAds()
+        }
         
         weekdayToggleTableView.register(
             UINib(
@@ -151,16 +160,9 @@ class WeekdayViewController: UIViewController {
 }
 
 extension WeekdayViewController: PurchasingPopupViewControllerDelegate {
-    func removeAds() {
-        showTabbar()
-        
+    func removeAds() {        
         bannerView?.removeFromSuperview()
         navigationItem.leftBarButtonItem = nil
-    }
-    
-    func showTabbar() {
-        tabBarController?.tabBar.layer.zPosition = 0
-        tabBarController?.tabBar.isUserInteractionEnabled = true
     }
 }
 

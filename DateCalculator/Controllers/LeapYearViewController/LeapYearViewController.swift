@@ -50,13 +50,22 @@ class LeapYearViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if viewModel.isPurchased {
+            removeAds()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.delegate = self
         viewModel.inputDate = Date()
         
-        bannerView = createAndLoadBannerAds()
+        if !viewModel.isPurchased {
+            bannerView = createAndLoadBannerAds()
+        }
         
         [inputContainerView, outputContainerView].forEach {
             $0?.backgroundColor = UIColor.purpleLilac
@@ -113,16 +122,9 @@ class LeapYearViewController: UIViewController {
 }
 
 extension LeapYearViewController: PurchasingPopupViewControllerDelegate {
-    func removeAds() {
-        showTabbar()
-        
+    func removeAds() {        
         bannerView?.removeFromSuperview()
         navigationItem.leftBarButtonItem = nil
-    }
-    
-    func showTabbar() {
-        tabBarController?.tabBar.layer.zPosition = 0
-        tabBarController?.tabBar.isUserInteractionEnabled = true
     }
 }
 

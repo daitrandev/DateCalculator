@@ -11,7 +11,6 @@ import SwiftyStoreKit
 
 protocol PurchasingPopupViewControllerDelegate: class {
     func removeAds()
-    func showTabbar()
 }
 
 class PurchasingPopupViewController: UIViewController {
@@ -31,6 +30,10 @@ class PurchasingPopupViewController: UIViewController {
         modalPresentationStyle = .overCurrentContext
     }
     
+    deinit {
+        print("PurchasingPopupViewController deinit")
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -43,13 +46,8 @@ class PurchasingPopupViewController: UIViewController {
         setDonateButton(isEnabled: true)
         setRestoreDonate(isEnabled: true)
         
-        if #available(iOS 13, *) {
-            donateLoadingButton.set(buttonColor: traitCollection.userInterfaceStyle.themeColor)
-            restoreDonateButton.set(buttonColor: traitCollection.userInterfaceStyle.themeColor)
-        } else {
-            donateLoadingButton.set(buttonColor: .purpleLilac)
-            restoreDonateButton.set(buttonColor: .purpleLilac)
-        }
+        donateLoadingButton.set(buttonColor: .purpleLilac)
+        restoreDonateButton.set(buttonColor: .purpleLilac)
                 
         cancelButton.addTarget(
             self,
@@ -66,9 +64,7 @@ class PurchasingPopupViewController: UIViewController {
     }
     
     @objc private func didTapCancel() {
-        dismiss(animated: true) {
-            self.delegate?.showTabbar()
-        }
+        dismiss(animated: true)
     }
     
     @IBAction func didTapDonate() {

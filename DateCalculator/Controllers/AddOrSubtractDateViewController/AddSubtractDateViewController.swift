@@ -53,10 +53,19 @@ class AddSubtractDateViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if viewModel.isPurchased {
+            removeAds()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bannerView = createAndLoadBannerAds()
+        if !viewModel.isPurchased {
+            bannerView = createAndLoadBannerAds()
+        }
         
         viewModel.delegate = self
         
@@ -126,16 +135,9 @@ class AddSubtractDateViewController: UIViewController {
 }
 
 extension AddSubtractDateViewController: PurchasingPopupViewControllerDelegate {
-    func removeAds() {
-        showTabbar()
-        
+    func removeAds() {        
         bannerView?.removeFromSuperview()
         navigationItem.leftBarButtonItem = nil
-    }
-    
-    func showTabbar() {
-        tabBarController?.tabBar.layer.zPosition = 0
-        tabBarController?.tabBar.isUserInteractionEnabled = true
     }
 }
 
